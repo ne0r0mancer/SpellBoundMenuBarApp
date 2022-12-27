@@ -11,6 +11,12 @@
 		F4DE22EA2959E3BB00BC398A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E92959E3BB00BC398A /* ContentView.swift */; };
 		F4DE22EC2959E3BD00BC398A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EB2959E3BD00BC398A /* Assets.xcassets */; };
 		F4DE22EF2959E3BD00BC398A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */; };
+		F4DE22FC295A06A000BC398A /* SBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22FB295A06A000BC398A /* SBService.swift */; };
+		F4DE22FE295A074F00BC398A /* SBCorrection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22FD295A074F00BC398A /* SBCorrection.swift */; };
+		F4DE2301295A07EB00BC398A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE2300295A07EB00BC398A /* Constants.swift */; };
+		F4DE2303295A08F200BC398A /* OpenAIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE2302295A08F200BC398A /* OpenAIConnector.swift */; };
+		F4DE2305295B41C200BC398A /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE2304295B41C200BC398A /* AccessibilityHelper.swift */; };
+		F4DE2309295B530500BC398A /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DE2307295B51BC00BC398A /* ApplicationServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +26,13 @@
 		F4DE22EB2959E3BD00BC398A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4DE22F02959E3BD00BC398A /* SpellBoundMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpellBoundMenuBar.entitlements; sourceTree = "<group>"; };
+		F4DE22F62959ECE800BC398A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F4DE22FB295A06A000BC398A /* SBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBService.swift; sourceTree = "<group>"; };
+		F4DE22FD295A074F00BC398A /* SBCorrection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBCorrection.swift; sourceTree = "<group>"; };
+		F4DE2300295A07EB00BC398A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F4DE2302295A08F200BC398A /* OpenAIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIConnector.swift; sourceTree = "<group>"; };
+		F4DE2304295B41C200BC398A /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
+		F4DE2307295B51BC00BC398A /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +40,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DE2309295B530500BC398A /* ApplicationServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3107F17B8E6FAC4052FDDCFE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F4DE22FD295A074F00BC398A /* SBCorrection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F4DE22DB2959E3BB00BC398A = {
 			isa = PBXGroup;
 			children = (
 				F4DE22E62959E3BB00BC398A /* SpellBoundMenuBar */,
 				F4DE22E52959E3BB00BC398A /* Products */,
+				F4DE2306295B51BC00BC398A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +75,10 @@
 		F4DE22E62959E3BB00BC398A /* SpellBoundMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				F4DE22FF295A07E100BC398A /* Utils */,
+				3107F17B8E6FAC4052FDDCFE /* Models */,
+				F4DE22FA295A068800BC398A /* Services */,
+				F4DE22F62959ECE800BC398A /* Info.plist */,
 				F4DE22E72959E3BB00BC398A /* SpellBoundMenuBarApp.swift */,
 				F4DE22E92959E3BB00BC398A /* ContentView.swift */,
 				F4DE22EB2959E3BD00BC398A /* Assets.xcassets */,
@@ -67,6 +94,32 @@
 				F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F4DE22FA295A068800BC398A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F4DE22FB295A06A000BC398A /* SBService.swift */,
+				F4DE2302295A08F200BC398A /* OpenAIConnector.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F4DE22FF295A07E100BC398A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F4DE2300295A07EB00BC398A /* Constants.swift */,
+				F4DE2304295B41C200BC398A /* AccessibilityHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F4DE2306295B51BC00BC398A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4DE2307295B51BC00BC398A /* ApplicationServices.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +192,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DE2301295A07EB00BC398A /* Constants.swift in Sources */,
+				F4DE22FC295A06A000BC398A /* SBService.swift in Sources */,
 				F4DE22EA2959E3BB00BC398A /* ContentView.swift in Sources */,
+				F4DE2303295A08F200BC398A /* OpenAIConnector.swift in Sources */,
+				F4DE2305295B41C200BC398A /* AccessibilityHelper.swift in Sources */,
+				F4DE22FE295A074F00BC398A /* SBCorrection.swift in Sources */,
 				F4DE22E82959E3BB00BC398A /* SpellBoundMenuBarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +238,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -240,6 +299,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -266,14 +326,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SpellBoundMenuBar/SpellBoundMenuBar.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpellBoundMenuBar/Preview Content\"";
 				DEVELOPMENT_TEAM = D6K6GHF43V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpellBoundMenuBar/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -293,14 +356,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SpellBoundMenuBar/SpellBoundMenuBar.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpellBoundMenuBar/Preview Content\"";
 				DEVELOPMENT_TEAM = D6K6GHF43V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpellBoundMenuBar/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
