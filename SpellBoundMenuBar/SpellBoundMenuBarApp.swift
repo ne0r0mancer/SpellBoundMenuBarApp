@@ -11,10 +11,10 @@ import ApplicationServices
 
 @main
 struct SpellBoundMenuBarApp: App {
-    @State private var isIconVisible = true
+    @State private var isLoading: Bool = false
 
-    fileprivate func rewriteWithAI(prefix: String, temperature: Float = 0.0) {
-
+    func rewriteWithAI(prefix: String, temperature: Float = 0.0) {
+        isLoading.toggle()
         // obtain selected text
         AccessibilityHelper().simulateCmdCKeystroke()
         let selectedTextFromClipboard = AccessibilityHelper().copyFromClipboard()
@@ -22,25 +22,35 @@ struct SpellBoundMenuBarApp: App {
         print("Prompt detected:", prompt)
         let finalPrompt = prefix + prompt + "\nOutput:"
         print("Final prompt:", finalPrompt)
-        let response: String = OpenAIConnector().processPrompt(prompt: finalPrompt, temparature: temperature) ?? "error"
-
-        // insert corrected text
-        print("Output detected:", response)
-        AccessibilityHelper().copyToClipboard(text: response)
-        AccessibilityHelper().simulateCmdVKeystroke()
+        // make call async
+        DispatchQueue.global(qos: .background).async {
+            // make call
+            let response: String = OpenAIConnector().processPrompt(prompt: finalPrompt, temperature: temperature) ?? "error"
+            print("Output detected:", response)
+            // copy to clipboard
+            AccessibilityHelper().copyToClipboard(text: response)
+            // simulate cmd+v keystroke
+            AccessibilityHelper().simulateCmdVKeystroke()
+            // update UI
+            DispatchQueue.main.async {
+                isLoading.toggle()
+            }
+        }
     }
 
     var body: some Scene {
-        MenuBarExtra("SpellBound App", systemImage: "scribble.variable") {
+        MenuBarExtra("SpellBound App", systemImage: isLoading ? "timelapse" : "scribble.variable") {
             VStack(alignment: .leading) {
                 Text("SpellBound makes your writing shine!")
-               
+                Button(isLoading ? "Loading" : "Not Loading") {
+                    isLoading.toggle()
+                }
+
                 // Correct other languages
                 Menu("Correct Grammar") {
                     Button {
                         print("Correct Grammar pressed")
                         rewriteWithAI(prefix: "Correct this to standard English:\nInput:", temperature: 0.2)
-
 
                     } label: {
                         Image(systemName: "pencil.and.outline")

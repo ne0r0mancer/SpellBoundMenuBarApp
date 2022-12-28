@@ -44,7 +44,7 @@ public class OpenAIConnector {
 
     public func processPrompt(
             prompt: String,
-            temparature: Float = 0.5
+            temperature: Float = 0.5
     ) -> Optional<String> {
         print("Calling URL: \(openAIURL!)")
         print("Calling OpenAI with prompt: \(prompt)")
@@ -57,7 +57,7 @@ public class OpenAIConnector {
             "frequency_penalty": 0,
             "model": "text-davinci-003",
             "stop": ["Input:"],
-            "temperature": temparature,
+            "temperature": temperature,
             "presence_penalty": 0,
             "max_tokens": 450,
             "n": 1,
