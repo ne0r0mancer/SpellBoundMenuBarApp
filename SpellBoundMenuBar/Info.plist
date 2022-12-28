@@ -18,6 +18,8 @@
 	</array>
 	<key>LSUIElement</key>
 	<true/>
-</dict>
+	<key>LSBackgroundOnly</key>
+	<true/>
 
+</dict>
 </plist>

@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let text: String    
+
+    init(text: String) {
+        print("Setting text to", text)
+        self.text = text
+    }
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+            Text(text)
         }
-        .padding()
+                .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(text: "Default text")
     }
 }

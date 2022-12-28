@@ -43,7 +43,8 @@ public class OpenAIConnector {
     }
 
     public func processPrompt(
-            prompt: String
+            prompt: String,
+            temparature: Float = 0.5
     ) -> Optional<String> {
         print("Calling URL: \(openAIURL!)")
         print("Calling OpenAI with prompt: \(prompt)")
@@ -53,9 +54,15 @@ public class OpenAIConnector {
         request.addValue("Bearer \(self.openAIKey)", forHTTPHeaderField: "Authorization")
         let httpBody: [String: Any] = [
             "prompt": prompt,
+            "frequency_penalty": 0,
             "model": "text-davinci-003",
-            "max_tokens": 100,
-            "temperature": 0
+            "stop": ["Input:"],
+            "temperature": temparature,
+            "presence_penalty": 0,
+            "max_tokens": 450,
+            "n": 1,
+            "best_of": 1,
+            "user": ""
         ]
 
         var httpBodyJson: Data
