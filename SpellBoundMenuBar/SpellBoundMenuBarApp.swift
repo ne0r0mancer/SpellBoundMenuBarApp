@@ -16,13 +16,22 @@ struct SpellBoundMenuBarApp: App {
 
     func rewriteWithAI(prefix: String, temperature: Float = 0.0) {
         isLoading.toggle()
+        
         // obtain selected text
         AccessibilityHelper().simulateCmdCKeystroke()
+        
+        // Wait for the copy action to complete
+        usleep(100000)
+        
         let selectedTextFromClipboard = AccessibilityHelper().copyFromClipboard()
         let prompt = selectedTextFromClipboard ?? ""
+        
         print("Prompt detected:", prompt)
+        
         let finalPrompt = prefix + prompt + "\nOutput:"
-        print("Final prompt:", finalPrompt)
+        
+//        print("Final prompt:", finalPrompt)
+        
         // make call async
         DispatchQueue.global(qos: .background).async {
             // make call
@@ -40,9 +49,9 @@ struct SpellBoundMenuBarApp: App {
     }
 
     var body: some Scene {
-        MenuBarExtra("SpellBound App", systemImage: isLoading ? "timelapse" : "scribble.variable") {
+        MenuBarExtra("SpellBound App", systemImage: isLoading ? "rectangle.and.pencil.and.ellipsis" : "s.circle") {
             VStack(alignment: .leading) {
-                Text("SpellBound makes your writing shine!")
+                Text("Spellbound will give your writing a sparkle!")
                 
                 // Correct other languages
                 Menu("Correct Grammar") {
@@ -81,5 +90,6 @@ struct SpellBoundMenuBarApp: App {
 
         }
                 .menuBarExtraStyle(.menu)
+        
     }
 }
