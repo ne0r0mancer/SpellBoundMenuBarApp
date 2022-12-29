@@ -45,7 +45,7 @@ public class OpenAIConnector {
         let task = session.dataTask(with: request as URLRequest, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
             if error != nil {
                 print("error: \(error!.localizedDescription): \(error!.localizedDescription)")
-            } else if data != nil {S
+            } else if data != nil {
                 requestData = data
             }
 

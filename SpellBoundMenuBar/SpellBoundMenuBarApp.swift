@@ -43,32 +43,19 @@ struct SpellBoundMenuBarApp: App {
         MenuBarExtra("SpellBound App", systemImage: isLoading ? "timelapse" : "scribble.variable") {
             VStack(alignment: .leading) {
                 Text("SpellBound makes your writing shine!")
-                Button(isLoading ? "Loading" : "Not Loading") {
-                    isLoading.toggle()
-                }
-
+                
                 // Correct other languages
                 Menu("Correct Grammar") {
-                    Button {
+                    Button ("English") {
                         print("Correct Grammar pressed")
                         rewriteWithAI(prefix: "Correct this to standard English:\nInput:", temperature: 0.2)
 
-                    } label: {
-                        Image(systemName: "pencil.and.outline")
-                                .imageScale(.large)
-                                .foregroundColor(.accentColor)
-                        Text("English")
                     }
-                    Button {
+                    Button ("French") {
                         print("Correct Grammar pressed")
                         rewriteWithAI(prefix: "Corriger ça en français:\nInput:", temperature: 0.2)
 
 
-                    } label: {
-                        Image(systemName: "pencil.and.outline")
-                                .imageScale(.large)
-                                .foregroundColor(.accentColor)
-                        Text("French")
                     }
                 }
                 // rewrite menu
