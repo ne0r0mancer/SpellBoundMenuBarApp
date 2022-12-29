@@ -9,6 +9,7 @@ import SwiftUI
 import AppKit
 import ApplicationServices
 
+
 @main
 struct SpellBoundMenuBarApp: App {
     @State private var isLoading: Bool = false

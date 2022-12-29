@@ -7,10 +7,30 @@
 
 import Foundation
 
+enum CannotReadPropertyFile: Error {
+    case propertyFileReadingError
+}
+
 public class OpenAIConnector {
+
     let openAIURL = URL(string: "https://api.openai.com/v1/completions")
-    var openAIKey: String {
-        return "***REMOVED***"
+    var openAIKey: String = ""
+
+    init() {
+        print("OpenAIConnector initialized")
+        guard let fileUrl = Bundle.main.url(forResource: "Secrets", withExtension: "plist") else {
+            print("ERROR: Cannot find Secrets.plist")
+            return
+        }
+        do {
+            let data = try Data(contentsOf: fileUrl)
+            let secrets = try PropertyListDecoder().decode([String: String].self, from: data)
+            openAIKey = secrets["openAIKey"] ?? ""
+            print("OpenAI key is", openAIKey)
+            
+        } catch {
+            print("ERROR: Cannot read Secrets.plist")
+        }
     }
 
     private func executeRequest(request: URLRequest, withSessionConfig sessionConfig: URLSessionConfiguration?) -> Data? {
@@ -25,7 +45,7 @@ public class OpenAIConnector {
         let task = session.dataTask(with: request as URLRequest, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
             if error != nil {
                 print("error: \(error!.localizedDescription): \(error!.localizedDescription)")
-            } else if data != nil {
+            } else if data != nil {S
                 requestData = data
             }
 
