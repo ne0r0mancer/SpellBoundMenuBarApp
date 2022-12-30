@@ -13,6 +13,7 @@ import ApplicationServices
 @main
 struct SpellBoundMenuBarApp: App {
     @State private var isLoading: Bool = false
+    @State private var introScreenHasBeenShown: Bool = UserDefaults.standard.bool(forKey: "IntroScreenShown")
 
     func rewriteWithAI(prefix: String, temperature: Float = 0.0) {
         isLoading.toggle()
@@ -49,6 +50,17 @@ struct SpellBoundMenuBarApp: App {
     }
 
     var body: some Scene {
+// FIXME - do not show the  intro screen if the user has already seen it
+//        WindowGroup {
+//            // Show intro screen the first time the app is launched
+//            IntroView()
+//        }
+//                .windowStyle(HiddenTitleBarWindowStyle())
+//                .handlesExternalEvents(matching: Set(arrayLiteral: "com.splbnd.spellboundmenu"))
+
+
+
+
         MenuBarExtra("SpellBound App", systemImage: isLoading ? "zzz" : "sparkles") {
             VStack(alignment: .leading) {
                 Text("Spellbound will give your writing a sparkle!")
@@ -60,7 +72,8 @@ struct SpellBoundMenuBarApp: App {
                         rewriteWithAI(prefix: "Correct this to standard English:\nInput:", temperature: 0.2)
 
                     }
-                    Button ("Français") {
+
+                    Button("Français") {
                         print("Correct Grammar pressed")
                         rewriteWithAI(prefix: "Corriger ça en français:\nInput:", temperature: 0.2)
                     }
@@ -68,8 +81,8 @@ struct SpellBoundMenuBarApp: App {
                     Image(systemName: "globe")
                     Text("Correct Grammar")
                 }
-                // rewrite menu
-                Menu{
+// rewrite menu
+                Menu {
                     Button("Formal") {
                         print("Formal button pressed")
                         rewriteWithAI(prefix: "Rephrase the following into a highly professional statement,\nInput:", temperature: 0.5)
@@ -94,13 +107,13 @@ struct SpellBoundMenuBarApp: App {
                     Image(systemName: "textformat.abc.dottedunderline")
                     Text("Rephrase ...")
                 }
-                // settings
-                Button{
+// settings
+                Button {
                     // open new window
                     let window = NSWindow(
-                        contentRect: NSRect(x: 0, y: 0, width: 800, height: 800),
-                        styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-                        backing: .buffered, defer: false)
+                            contentRect: NSRect(x: 0, y: 0, width: 800, height: 800),
+                            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+                            backing: .buffered, defer: false)
                     window.center()
                     window.setFrameAutosaveName("Main Window")
                     window.contentView = NSHostingView(rootView: ContentView())
@@ -124,16 +137,16 @@ struct SpellBoundMenuBarApp: App {
                             .foregroundColor(.blue)
                 }
 
-                // link to web version
-                Button{
+// link to web version
+                Button {
                     NSWorkspace.shared.open(URL(string: "https://help.spellbound.cc")!)
                 } label: {
                     Image(systemName: "link")
                     Text("Help")
-                    // color blue
-                    .foregroundColor(.blue)
+                            // color blue
+                            .foregroundColor(.blue)
                 }
-                // quit prefixed with icon
+// quit prefixed with icon
                 Button("Quit") {
                     NSApp.terminate(nil)
                 }
