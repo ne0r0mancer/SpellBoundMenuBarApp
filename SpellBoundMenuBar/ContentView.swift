@@ -38,7 +38,7 @@ struct ContentView: View {
                             .padding([.horizontal], 4)
                             .cornerRadius(4)
                             .overlay(RoundedRectangle(cornerRadius: 4).stroke(color1))
-                    .padding([.horizontal], 24)
+                            .padding([.horizontal], 24)
                 }
                 Link("How to get Opel AI Key?", destination: URL(string: "https://openai.com")!)
                         .font(.system(size: 10))
@@ -79,11 +79,11 @@ struct ContentView: View {
                 // check if data is stored
                 let openaiKey = Keychain.shared.retrieve(key: "openaiKey")
                 let gumroadKey = Keychain.shared.retrieve(key: "gumroadKey")
-                print("OpenAI Key retrieved:", openaiKey)
-                print("Gumroad Key retrieved:", gumroadKey)
-
-
+                print("OpenAI Key retrieved:", openaiKey ?? "")
+                print("Gumroad Key retrieved:", gumroadKey ?? "")
             }
+                    // disable save button if no keys are entered
+                    .disabled(openaiKey == "" || gumroadKey == "")
         }
                 .padding()
     }

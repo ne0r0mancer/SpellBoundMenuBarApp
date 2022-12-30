@@ -49,7 +49,7 @@ struct SpellBoundMenuBarApp: App {
     }
 
     var body: some Scene {
-        MenuBarExtra("SpellBound App", systemImage: isLoading ? "rectangle.and.pencil.and.ellipsis" : "s.circle") {
+        MenuBarExtra("SpellBound App", systemImage: isLoading ? "zzz" : "sparkles") {
             VStack(alignment: .leading) {
                 Text("Spellbound will give your writing a sparkle!")
 
@@ -70,12 +70,9 @@ struct SpellBoundMenuBarApp: App {
                 }
                 // rewrite menu
                 Menu{
-                    Button {
+                    Button("Formal") {
                         print("Formal button pressed")
                         rewriteWithAI(prefix: "Rephrase the following into a highly professional statement,\nInput:", temperature: 0.5)
-                    } label: {
-                        Text("Formal")
-                        Label("👔", systemImage: "suit.heart.fill")
                     }
                     Button("Friendly") {
                         print("Formal button pressed")
@@ -94,7 +91,7 @@ struct SpellBoundMenuBarApp: App {
                         rewriteWithAI(prefix: "Rephrase the following into a very poetic written statement,\nInput:", temperature: 0.5)
                     }
                 } label: {
-                    Image(systemName: "pencil.and.outline")
+                    Image(systemName: "textformat.abc.dottedunderline")
                     Text("Rephrase ...")
                 }
                 // settings
