@@ -19,13 +19,14 @@
 		F4DE2305295B41C200BC398A /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE2304295B41C200BC398A /* AccessibilityHelper.swift */; };
 		F4DE2309295B530500BC398A /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DE2307295B51BC00BC398A /* ApplicationServices.framework */; };
 		F4DE230D295DD7AD00BC398A /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4DE230C295DD7AD00BC398A /* Secrets.plist */; };
+		F4DE2310295EEB1700BC398A /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE230F295EEB1700BC398A /* Keychain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3107F6D73E6338803A3028BC /* DebugWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugWindowController.swift; sourceTree = "<group>"; };
 		F4DE22E42959E3BB00BC398A /* SpellBoundMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpellBoundMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DE22E72959E3BB00BC398A /* SpellBoundMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellBoundMenuBarApp.swift; sourceTree = "<group>"; };
-		F4DE22E92959E3BB00BC398A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F4DE22E92959E3BB00BC398A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		F4DE22EB2959E3BD00BC398A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4DE22F02959E3BD00BC398A /* SpellBoundMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpellBoundMenuBar.entitlements; sourceTree = "<group>"; };
@@ -37,6 +38,7 @@
 		F4DE2304295B41C200BC398A /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
 		F4DE2307295B51BC00BC398A /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		F4DE230C295DD7AD00BC398A /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Secrets.plist; path = SpellBoundMenuBar/Secrets.plist; sourceTree = "<group>"; };
+		F4DE230F295EEB1700BC398A /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			children = (
 				F4DE22FB295A06A000BC398A /* SBService.swift */,
 				F4DE2302295A08F200BC398A /* OpenAIConnector.swift */,
+				F4DE230F295EEB1700BC398A /* Keychain.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -180,6 +183,8 @@
 				Base,
 			);
 			mainGroup = F4DE22DB2959E3BB00BC398A;
+			packageReferences = (
+			);
 			productRefGroup = F4DE22E52959E3BB00BC398A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -212,6 +217,7 @@
 				F4DE22EA2959E3BB00BC398A /* ContentView.swift in Sources */,
 				F4DE2303295A08F200BC398A /* OpenAIConnector.swift in Sources */,
 				F4DE2305295B41C200BC398A /* AccessibilityHelper.swift in Sources */,
+				F4DE2310295EEB1700BC398A /* Keychain.swift in Sources */,
 				F4DE22FE295A074F00BC398A /* SBCorrection.swift in Sources */,
 				F4DE22E82959E3BB00BC398A /* SpellBoundMenuBarApp.swift in Sources */,
 				3107F7EC96071AFFADCDD48B /* DebugWindowController.swift in Sources */,

@@ -14,22 +14,13 @@ enum CannotReadPropertyFile: Error {
 public class OpenAIConnector {
 
     let openAIURL = URL(string: "https://api.openai.com/v1/completions")
-    var openAIKey: String = ""
+    var openAIKey: String = Keychain.shared.retrieve(key: "openaiKey") ?? ""
 
     init() {
-        print("OpenAIConnector initialized")
-        guard let fileUrl = Bundle.main.url(forResource: "Secrets", withExtension: "plist") else {
-            print("ERROR: Cannot find Secrets.plist")
-            return
-        }
-        do {
-            let data = try Data(contentsOf: fileUrl)
-            let secrets = try PropertyListDecoder().decode([String: String].self, from: data)
-            openAIKey = secrets["openAIKey"] ?? ""
-            print("OpenAI key is", openAIKey)
-            
-        } catch {
-            print("ERROR: Cannot read Secrets.plist")
+        print("Initializing OpenAIConnector")
+        print("OpenAI key is", openAIKey)
+        if openAIKey == "" {
+            print("ERROR: OpenAI key is empty")
         }
     }
 
