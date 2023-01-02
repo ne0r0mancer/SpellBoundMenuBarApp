@@ -81,7 +81,8 @@ struct SpellBoundMenuBarApp: App {
                     Image(systemName: "globe")
                     Text("Correct Grammar")
                 }
-// rewrite menu
+
+                // rewrite menu
                 Menu {
                     Button("Formal") {
                         print("Formal button pressed")
@@ -107,7 +108,17 @@ struct SpellBoundMenuBarApp: App {
                     Image(systemName: "textformat.abc.dottedunderline")
                     Text("Rephrase ...")
                 }
-// settings
+
+
+                Button {
+                    print("Reply-to pressed")
+                    rewriteWithAI(prefix: "Reply to the following email:\nInput:", temperature: 0.3)
+                } label: {
+                    Image(systemName: "arrowshape.turn.up.right")
+                    Text("Magic Reply")
+                }
+
+                // preferences menu
                 Button {
                     // open new window
                     let window = NSWindow(
@@ -132,9 +143,7 @@ struct SpellBoundMenuBarApp: App {
 
                 } label: {
                     Image(systemName: "gearshape")
-                    Text("Settings")
-                            // color blue
-                            .foregroundColor(.blue)
+                    Text("Preferences")
                 }
 
 // link to web version
@@ -142,8 +151,7 @@ struct SpellBoundMenuBarApp: App {
                     NSWorkspace.shared.open(URL(string: "https://help.spellbound.cc")!)
                 } label: {
                     Image(systemName: "link")
-                    Text("Help")
-                            // color blue
+                    Text("Help & Support")
                             .foregroundColor(.blue)
                 }
 // quit prefixed with icon
