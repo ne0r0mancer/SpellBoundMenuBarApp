@@ -15,7 +15,7 @@ struct SpellBoundMenuBarApp: App {
     @State private var isLoading: Bool = false
     @State private var introScreenHasBeenShown: Bool = UserDefaults.standard.bool(forKey: "IntroScreenShown")
 
-    func rewriteWithAI(prefix: String, temperature: Float = 0.0) {
+    func rewriteWithAI(prefix: String, temperature: Float = 0.0, suffix: String = "\nOutput:") {
         isLoading.toggle()
 
         // obtain selected text
@@ -29,7 +29,7 @@ struct SpellBoundMenuBarApp: App {
 
         print("Prompt detected:", prompt)
 
-        let finalPrompt = prefix + prompt + "\nOutput:"
+        let finalPrompt = prefix + prompt + suffix
 
 //        print("Final prompt:", finalPrompt)
 
@@ -51,13 +51,12 @@ struct SpellBoundMenuBarApp: App {
 
     var body: some Scene {
 // FIXME - do not show the  intro screen if the user has already seen it
-//        WindowGroup {
-//            // Show intro screen the first time the app is launched
-//            IntroView()
-//        }
-//                .windowStyle(HiddenTitleBarWindowStyle())
-//                .handlesExternalEvents(matching: Set(arrayLiteral: "com.splbnd.spellboundmenu"))
-
+        WindowGroup {
+            // Show intro screen the first time the app is launched
+            IntroView()
+        }
+                .windowStyle(HiddenTitleBarWindowStyle())
+                .handlesExternalEvents(matching: Set(arrayLiteral: "com.splbnd.spellboundmenu"))
 
 
 
@@ -65,7 +64,7 @@ struct SpellBoundMenuBarApp: App {
             VStack(alignment: .leading) {
                 Text("Spellbound will give your writing a sparkle!")
 
-                // Correct other languages
+                // Correct spelling menu
                 Menu {
                     Button("English") {
                         print("Correct Grammar pressed")
@@ -118,6 +117,17 @@ struct SpellBoundMenuBarApp: App {
                     Text("Magic Reply")
                 }
 
+                Button {
+                    print("Brainstorm")
+                    rewriteWithAI(prefix: "", temperature: 0.3, suffix: "")
+                } label: {
+                    Image(systemName: "lightbulb")
+                    Text("Inspire me")
+                }
+
+                // Button with image from project
+
+
                 // preferences menu
                 Button {
                     // open new window
@@ -127,11 +137,10 @@ struct SpellBoundMenuBarApp: App {
                             backing: .buffered, defer: false)
                     window.center()
                     window.setFrameAutosaveName("Main Window")
-                    window.contentView = NSHostingView(rootView: ContentView())
+                    window.contentView = NSHostingView(rootView: PreferencesView())
                     // make window modal
                     window.makeKeyAndOrderFront(nil)
                     // resize window to fit the content
-                    // https://stackoverflow.com/questions/56810044/how-to-resize-window-to-fit-content-in-swiftui
                     window.setContentSize(window.contentView!.fittingSize)
                     // on close do not quit the app
                     window.isReleasedWhenClosed = false
@@ -148,7 +157,7 @@ struct SpellBoundMenuBarApp: App {
 
 // link to web version
                 Button {
-                    NSWorkspace.shared.open(URL(string: "https://help.spellbound.cc")!)
+                    NSWorkspace.shared.open(URL(string: "https://king-prawn-app-k3rxi.ondigitalocean.app")!)
                 } label: {
                     Image(systemName: "link")
                     Text("Help & Support")

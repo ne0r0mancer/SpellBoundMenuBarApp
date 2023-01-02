@@ -11,12 +11,17 @@ import SwiftUI
 struct IntroView: View {
     var body: some View {
         VStack {
-            Image(systemName: "sparkles")
+            Image(systemName: "spellbound")
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
             Text("Spellbound will give your writing a sparkle!")
-
+            // show image
+            Image("intro")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 400, height: 400)
             Text("We hope you will enjoy using our app!")
+            
             Button(action: {
                 // Navigate to the main app content here
                 // Set the value in UserDefaults to indicate that the intro screen has been shown
@@ -26,7 +31,7 @@ struct IntroView: View {
                 NSApplication.shared.keyWindow?.close()
 
             }) {
-                Text("Begin using Spellbound")
+                Text("Setup")
 
             }
         }

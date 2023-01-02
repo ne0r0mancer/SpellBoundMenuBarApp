@@ -10,7 +10,7 @@
 		3107F1176B1181BEDC33F789 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107F398D0378C633A569E2E /* IntroView.swift */; };
 		3107F7EC96071AFFADCDD48B /* DebugWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107F6D73E6338803A3028BC /* DebugWindowController.swift */; };
 		F4DE22E82959E3BB00BC398A /* SpellBoundMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E72959E3BB00BC398A /* SpellBoundMenuBarApp.swift */; };
-		F4DE22EA2959E3BB00BC398A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E92959E3BB00BC398A /* ContentView.swift */; };
+		F4DE22EA2959E3BB00BC398A /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E92959E3BB00BC398A /* PreferencesView.swift */; };
 		F4DE22EC2959E3BD00BC398A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EB2959E3BD00BC398A /* Assets.xcassets */; };
 		F4DE22EF2959E3BD00BC398A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */; };
 		F4DE22FC295A06A000BC398A /* SBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22FB295A06A000BC398A /* SBService.swift */; };
@@ -28,7 +28,7 @@
 		3107F6D73E6338803A3028BC /* DebugWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugWindowController.swift; sourceTree = "<group>"; };
 		F4DE22E42959E3BB00BC398A /* SpellBound - AI Writing Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpellBound - AI Writing Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DE22E72959E3BB00BC398A /* SpellBoundMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellBoundMenuBarApp.swift; sourceTree = "<group>"; };
-		F4DE22E92959E3BB00BC398A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
+		F4DE22E92959E3BB00BC398A /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		F4DE22EB2959E3BD00BC398A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4DE22F02959E3BD00BC398A /* SpellBoundMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpellBoundMenuBar.entitlements; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 				F4DE22FA295A068800BC398A /* Services */,
 				F4DE22F62959ECE800BC398A /* Info.plist */,
 				F4DE22E72959E3BB00BC398A /* SpellBoundMenuBarApp.swift */,
-				F4DE22E92959E3BB00BC398A /* ContentView.swift */,
+				F4DE22E92959E3BB00BC398A /* PreferencesView.swift */,
 				F4DE22EB2959E3BD00BC398A /* Assets.xcassets */,
 				F4DE22F02959E3BD00BC398A /* SpellBoundMenuBar.entitlements */,
 				F4DE22ED2959E3BD00BC398A /* Preview Content */,
@@ -217,7 +217,7 @@
 			files = (
 				F4DE2301295A07EB00BC398A /* Constants.swift in Sources */,
 				F4DE22FC295A06A000BC398A /* SBService.swift in Sources */,
-				F4DE22EA2959E3BB00BC398A /* ContentView.swift in Sources */,
+				F4DE22EA2959E3BB00BC398A /* PreferencesView.swift in Sources */,
 				F4DE2303295A08F200BC398A /* OpenAIConnector.swift in Sources */,
 				F4DE2305295B41C200BC398A /* AccessibilityHelper.swift in Sources */,
 				F4DE2310295EEB1700BC398A /* Keychain.swift in Sources */,

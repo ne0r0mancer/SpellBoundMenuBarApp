@@ -9,7 +9,7 @@ import SwiftUI
 import Security
 
 
-struct ContentView: View {
+struct PreferencesView: View {
     private let text: String = "Spellbound will give your writing a sparkle!"
     @State private var openaiKey = Keychain.shared.retrieve(key: "openaiKey") ?? ""
     @State private var gumroadKey = Keychain.shared.retrieve(key: "gumroadKey") ?? ""
@@ -40,7 +40,7 @@ struct ContentView: View {
                             .overlay(RoundedRectangle(cornerRadius: 4).stroke(color1))
                             .padding([.horizontal], 24)
                 }
-                Link("How to get Opel AI Key?", destination: URL(string: "https://openai.com")!)
+                Link("How to get Opel AI Key?", destination: URL(string: "https://king-prawn-app-k3rxi.ondigitalocean.app/docs/help/how-to-create-openai-token/")!)
                         .font(.system(size: 10))
                         .frame(alignment: .leading)
 
@@ -91,6 +91,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        PreferencesView()
     }
 }
