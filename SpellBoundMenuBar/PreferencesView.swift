@@ -40,7 +40,7 @@ struct PreferencesView: View {
                             .overlay(RoundedRectangle(cornerRadius: 4).stroke(color1))
                             .padding([.horizontal], 24)
                 }
-                Link("How to get Opel AI Key?", destination: URL(string: "https://king-prawn-app-k3rxi.ondigitalocean.app/docs/help/how-to-create-openai-token/")!)
+                Link("How to get Opel AI Key?", destination: URL(string: "https://support.spellbound.cc/docs/help/how-to-create-openai-token/")!)
                         .font(.system(size: 10))
                         .frame(alignment: .leading)
 

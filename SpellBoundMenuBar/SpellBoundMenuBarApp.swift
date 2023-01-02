@@ -13,7 +13,6 @@ import ApplicationServices
 @main
 struct SpellBoundMenuBarApp: App {
     @State private var isLoading: Bool = false
-    @State private var introScreenHasBeenShown: Bool = UserDefaults.standard.bool(forKey: "IntroScreenShown")
 
     func rewriteWithAI(prefix: String, temperature: Float = 0.0, suffix: String = "\nOutput:") {
         isLoading.toggle()
@@ -50,15 +49,10 @@ struct SpellBoundMenuBarApp: App {
     }
 
     var body: some Scene {
-// FIXME - do not show the  intro screen if the user has already seen it
+
         WindowGroup {
-            // Show intro screen the first time the app is launched
-            IntroView()
+            WelcomeView()
         }
-                .windowStyle(HiddenTitleBarWindowStyle())
-                .handlesExternalEvents(matching: Set(arrayLiteral: "com.splbnd.spellboundmenu"))
-
-
         MenuBarExtra("SpellBound App", systemImage: isLoading ? "zzz" : "sparkles") {
             VStack(alignment: .leading) {
                 Text("Spellbound will give your writing a sparkle!")
@@ -133,15 +127,15 @@ struct SpellBoundMenuBarApp: App {
                     Text("Preferences")
                 }
 
-// link to web version
+                // link to support
                 Button {
-                    NSWorkspace.shared.open(URL(string: "https://king-prawn-app-k3rxi.ondigitalocean.app")!)
+                    NSWorkspace.shared.open(URL(string: "https://support.spellbound.cc")!)
                 } label: {
                     Image(systemName: "link")
                     Text("Help & Support")
                             .foregroundColor(.blue)
                 }
-// quit prefixed with icon
+
                 Button("Quit") {
                     NSApp.terminate(nil)
                 }
@@ -151,6 +145,8 @@ struct SpellBoundMenuBarApp: App {
 
         }
                 .menuBarExtraStyle(.menu)
+        // on appear
+
 
     }
 }

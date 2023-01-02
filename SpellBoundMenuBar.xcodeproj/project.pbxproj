@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3107F1176B1181BEDC33F789 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107F398D0378C633A569E2E /* IntroView.swift */; };
 		3107F3CA6D9F52D11CE040EB /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107F607DCCC67FA00D036BA /* UIHelper.swift */; };
 		3107F7EC96071AFFADCDD48B /* DebugWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107F6D73E6338803A3028BC /* DebugWindowController.swift */; };
+		3107F99E5A4B5AEF4D9B2E11 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107F42E2FD61D01EB207F0D /* WelcomeView.swift */; };
 		F4DE22E82959E3BB00BC398A /* SpellBoundMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E72959E3BB00BC398A /* SpellBoundMenuBarApp.swift */; };
 		F4DE22EA2959E3BB00BC398A /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E92959E3BB00BC398A /* PreferencesView.swift */; };
 		F4DE22EC2959E3BD00BC398A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EB2959E3BD00BC398A /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3107F398D0378C633A569E2E /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		3107F42E2FD61D01EB207F0D /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		3107F607DCCC67FA00D036BA /* UIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		3107F6D73E6338803A3028BC /* DebugWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugWindowController.swift; sourceTree = "<group>"; };
 		F4DE22E42959E3BB00BC398A /* SpellBound - AI Writing Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpellBound - AI Writing Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +76,7 @@
 		3107FA619D72D62873F13ACE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3107F42E2FD61D01EB207F0D /* WelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,7 +112,6 @@
 				F4DE22F02959E3BD00BC398A /* SpellBoundMenuBar.entitlements */,
 				F4DE22ED2959E3BD00BC398A /* Preview Content */,
 				3107F11B3BF5C94142C50D45 /* Components */,
-				3107F398D0378C633A569E2E /* IntroView.swift */,
 				3107FA619D72D62873F13ACE /* Views */,
 			);
 			path = SpellBoundMenuBar;
@@ -235,8 +235,8 @@
 				F4DE22FE295A074F00BC398A /* SBCorrection.swift in Sources */,
 				F4DE22E82959E3BB00BC398A /* SpellBoundMenuBarApp.swift in Sources */,
 				3107F7EC96071AFFADCDD48B /* DebugWindowController.swift in Sources */,
-				3107F1176B1181BEDC33F789 /* IntroView.swift in Sources */,
 				3107F3CA6D9F52D11CE040EB /* UIHelper.swift in Sources */,
+				3107F99E5A4B5AEF4D9B2E11 /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,12 +375,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpellBoundMenuBar/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splbnd.SpellBoundMenuBar;
 				PRODUCT_NAME = "SpellBound - AI Writing Assistant";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -406,12 +407,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpellBoundMenuBar/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splbnd.SpellBoundMenuBar;
 				PRODUCT_NAME = "SpellBound - AI Writing Assistant";
 				PROVISIONING_PROFILE_SPECIFIER = "";
