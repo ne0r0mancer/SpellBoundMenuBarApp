@@ -8,5 +8,5 @@
 import Foundation
 
 struct Correction: Decodable {
-    let prompt: String    
+    let prompt: String
 }

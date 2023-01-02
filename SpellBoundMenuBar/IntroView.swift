@@ -21,7 +21,7 @@ struct IntroView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 400, height: 400)
             Text("We hope you will enjoy using our app!")
-            
+
             Button(action: {
                 // Navigate to the main app content here
                 // Set the value in UserDefaults to indicate that the intro screen has been shown
@@ -29,6 +29,9 @@ struct IntroView: View {
                 UserDefaults.standard.set(true, forKey: "IntroScreenShown")
                 // close current window when button clicked
                 NSApplication.shared.keyWindow?.close()
+                // show preferences window
+                showPreferences()
+
 
             }) {
                 Text("Setup")

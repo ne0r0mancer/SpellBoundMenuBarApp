@@ -8,9 +8,9 @@
 import Foundation
 
 struct Constants {
-    
+
     struct Urls {
         static let completionAPI = URL(string: "https://some_url")!
     }
-    
+
 }

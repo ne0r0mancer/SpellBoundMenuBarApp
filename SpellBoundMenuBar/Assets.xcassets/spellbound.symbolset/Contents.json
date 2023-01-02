@@ -1,12 +1,12 @@
 {
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
+  "info": {
+    "author": "xcode",
+    "version": 1
   },
-  "symbols" : [
+  "symbols": [
     {
-      "filename" : "spellbound.svg",
-      "idiom" : "universal"
+      "filename": "spellbound.svg",
+      "idiom": "universal"
     }
   ]
 }

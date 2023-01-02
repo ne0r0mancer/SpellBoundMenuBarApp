@@ -1,7 +1,7 @@
 import AppKit
 
 class DebugWindowController: NSWindowController {
-    
+
     private let inputLabel: NSTextField
     private let outputLabel: NSTextField
 
@@ -15,27 +15,27 @@ class DebugWindowController: NSWindowController {
 
         inputLabel = NSTextField(labelWithString: "Input:" + text)
         outputLabel = NSTextField(labelWithString: "Output:########")
-        
+
         window.contentView?.addSubview(inputLabel)
         window.contentView?.addSubview(outputLabel)
 
         super.init(window: window)
     }
-    
+
     func setInputText(_ text: String) {
         inputLabel.stringValue = text
-        }
-    
+    }
+
     func setOutputText(_ text: String) {
         outputLabel.stringValue = "Output:" + text
-        }
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func showModal() {
-           window?.makeKeyAndOrderFront(nil)
-           NSApp.runModal(for: window!)
-       }
+        window?.makeKeyAndOrderFront(nil)
+        NSApp.runModal(for: window!)
+    }
 }
