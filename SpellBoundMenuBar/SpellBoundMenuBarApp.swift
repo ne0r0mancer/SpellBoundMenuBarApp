@@ -17,6 +17,21 @@ struct SpellBoundMenuBarApp: App {
     func rewriteWithAI(prefix: String, temperature: Float = 0.0, suffix: String = "\nOutput:") {
         isLoading.toggle()
 
+        // check licence key
+        let licenceKey = Keychain.shared.retrieve(key: "gumroadKey") ?? ""
+        let licenceIsValid = GumroadConnector.shared.verify(gumroadKey: licenceKey)
+        if licenceIsValid == false {
+            print("Licence is invalid")
+            let alert = NSAlert()
+            alert.messageText = "Licence is invalid"
+            alert.informativeText = "Please enter a valid licence key"
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "OK")
+            alert.runModal()
+            isLoading.toggle()
+            return
+        }
+
         // obtain selected text
         AccessibilityHelper().simulateCmdCKeystroke()
 
@@ -107,7 +122,7 @@ struct SpellBoundMenuBarApp: App {
                     rewriteWithAI(prefix: "Reply to the following email:\nInput:", temperature: 0.3)
                 } label: {
                     Image(systemName: "arrowshape.turn.up.right")
-                    Text("Magic Reply")
+                    Text("Smart Reply")
                 }
 
                 Button {
@@ -115,7 +130,7 @@ struct SpellBoundMenuBarApp: App {
                     rewriteWithAI(prefix: "", temperature: 0.3, suffix: "")
                 } label: {
                     Image(systemName: "lightbulb")
-                    Text("Inspire me")
+                    Text("Brainstorm")
                 }
 
                 // preferences menu
@@ -134,6 +149,23 @@ struct SpellBoundMenuBarApp: App {
                     Image(systemName: "link")
                     Text("Help & Support")
                             .foregroundColor(.blue)
+                }
+
+                // preferences menu
+                Button {
+                    // show version
+                    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+                    let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+                    let alert = NSAlert()
+                    alert.messageText = "Spellbound \(version ?? "0.0.0") (\(build ?? "0"))"
+                    alert.informativeText = "© 2023 Spellbound"
+                    alert.alertStyle = .informational
+                    alert.addButton(withTitle: "OK")
+                    alert.runModal()
+
+                } label: {
+                    Image(systemName: "info.circle")
+                    Text("About")
                 }
 
                 Button("Quit") {

@@ -13,7 +13,9 @@ struct PreferencesView: View {
     private let text: String = "Spellbound will give your writing a sparkle!"
     @State private var openaiKey = Keychain.shared.retrieve(key: "openaiKey") ?? ""
     @State private var gumroadKey = Keychain.shared.retrieve(key: "gumroadKey") ?? ""
+    @State private var gumroadKeyIsValid = true // by default it is valid, will be re-evaluated on change
     @State private var isLoading: Bool = false
+    @State private var saveDisabled: Bool = false
 
     var body: some View {
         VStack {
@@ -39,6 +41,12 @@ struct PreferencesView: View {
                             .cornerRadius(4)
                             .overlay(RoundedRectangle(cornerRadius: 4).stroke(color1))
                             .padding([.horizontal], 24)
+                            // change saved state
+                            .onChange(of: openaiKey, perform: { value in
+                                print("openaiKey changed to \(value)")
+                                // disable save button if key is empty
+                                self.saveDisabled = false
+                            })
                 }
                 Link("How to get Opel AI Key?", destination: URL(string: "https://support.spellbound.cc/docs/help/how-to-create-openai-token/")!)
                         .font(.system(size: 10))
@@ -50,7 +58,7 @@ struct PreferencesView: View {
                 Label("Gumroad licence", systemImage: "key.icloud.fill")
                         .frame(width: 150, alignment: .leading)
                 // insert input text
-                let color2 = gumroadKey != "" ? Color.green : Color.red
+                let color2 = (gumroadKey != "" && gumroadKeyIsValid) ? Color.green : Color.red
                 TextField("Enter Gumroad licence", text: self.$gumroadKey)
                         // add style
                         .frame(width: 300, height: 35)
@@ -59,6 +67,10 @@ struct PreferencesView: View {
                         .cornerRadius(4)
                         .overlay(RoundedRectangle(cornerRadius: 4).stroke(color2))
                         .padding([.horizontal], 24)
+                        .onChange(of: gumroadKey, perform: { value in
+                            print("Gumroad key changed to \(value)")
+                            self.saveDisabled = false
+                        })
             }
             Label("Remember to check your mailbox for your Gumroad licence key!", systemImage: "envelope.fill")
                     // font size small
@@ -69,21 +81,44 @@ struct PreferencesView: View {
                 print("Save button pressed")
                 print("Current values are: OpenAI key:", openaiKey, "Gumroad key:", gumroadKey)
 
-                // storing data in keychain
-                print("Storing data in keychain")
-                let status1 = Keychain.shared.store(key: "openaiKey", value: openaiKey)
-                print("OpenAI key stored:", status1)
-                let status2 = Keychain.shared.store(key: "gumroadKey", value: gumroadKey)
-                print("Gumroad key stored:", status2)
+                // check gumroad key
+                if (gumroadKey != "") {
+                    print("Checking Gumroad key")
+                    let connector = GumroadConnector()
+                    if connector.verify(gumroadKey: gumroadKey) {
+                        print("Gumroad key is valid")
+                        gumroadKeyIsValid = true
+                        // save keys to keychain
+                        do {
+                            // storing data in keychain
+                            try Keychain.shared.store(key: "openaiKey", value: openaiKey)
+                            try Keychain.shared.store(key: "gumroadKey", value: gumroadKey)
 
-                // check if data is stored
-                let openaiKey = Keychain.shared.retrieve(key: "openaiKey")
-                let gumroadKey = Keychain.shared.retrieve(key: "gumroadKey")
-                print("OpenAI Key retrieved:", openaiKey ?? "")
-                print("Gumroad Key retrieved:", gumroadKey ?? "")
+                        } catch {
+                            print("Error saving key to keychain")
+                        }
+                    } else {
+                        print("Gumroad key is invalid")
+                        gumroadKeyIsValid = false
+                        // show error
+                        let alert = NSAlert()
+                        alert.messageText = "Gumroad key is invalid"
+                        alert.informativeText = "Please check your Gumroad key and try again."
+                        alert.alertStyle = .warning
+                        alert.addButton(withTitle: "OK")
+                        alert.runModal()
+                    }
+                } else {
+                    print("Gumroad key is empty")
+                    self.saveDisabled = false
+                }
+
+                // disable save button
+                saveDisabled = true
+
             }
                     // disable save button if no keys are entered
-                    .disabled(openaiKey == "" || gumroadKey == "")
+                    .disabled(openaiKey == "" || gumroadKey == "" || saveDisabled)
         }
                 .padding()
     }

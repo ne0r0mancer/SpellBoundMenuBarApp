@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3107F3502F4584886010E28F /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107FB8D38B409FBE642790F /* PreferencesView.swift */; };
 		3107F3CA6D9F52D11CE040EB /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107F607DCCC67FA00D036BA /* UIHelper.swift */; };
 		3107F7EC96071AFFADCDD48B /* DebugWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107F6D73E6338803A3028BC /* DebugWindowController.swift */; };
 		3107F99E5A4B5AEF4D9B2E11 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107F42E2FD61D01EB207F0D /* WelcomeView.swift */; };
+		3107F9EEAF21B26B58511003 /* GumroadConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107FA47680226B048E81DF1 /* GumroadConnector.swift */; };
 		F4DE22E82959E3BB00BC398A /* SpellBoundMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E72959E3BB00BC398A /* SpellBoundMenuBarApp.swift */; };
-		F4DE22EA2959E3BB00BC398A /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E92959E3BB00BC398A /* PreferencesView.swift */; };
 		F4DE22EC2959E3BD00BC398A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EB2959E3BD00BC398A /* Assets.xcassets */; };
 		F4DE22EF2959E3BD00BC398A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */; };
 		F4DE22FC295A06A000BC398A /* SBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22FB295A06A000BC398A /* SBService.swift */; };
@@ -20,7 +21,6 @@
 		F4DE2303295A08F200BC398A /* OpenAIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE2302295A08F200BC398A /* OpenAIConnector.swift */; };
 		F4DE2305295B41C200BC398A /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE2304295B41C200BC398A /* AccessibilityHelper.swift */; };
 		F4DE2309295B530500BC398A /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DE2307295B51BC00BC398A /* ApplicationServices.framework */; };
-		F4DE230D295DD7AD00BC398A /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4DE230C295DD7AD00BC398A /* Secrets.plist */; };
 		F4DE2310295EEB1700BC398A /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE230F295EEB1700BC398A /* Keychain.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,9 +28,10 @@
 		3107F42E2FD61D01EB207F0D /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		3107F607DCCC67FA00D036BA /* UIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		3107F6D73E6338803A3028BC /* DebugWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugWindowController.swift; sourceTree = "<group>"; };
-		F4DE22E42959E3BB00BC398A /* SpellBound - AI Writing Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpellBound - AI Writing Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3107FA47680226B048E81DF1 /* GumroadConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GumroadConnector.swift; sourceTree = "<group>"; };
+		3107FB8D38B409FBE642790F /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		F4DE22E42959E3BB00BC398A /* SpellBound AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpellBound AI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DE22E72959E3BB00BC398A /* SpellBoundMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellBoundMenuBarApp.swift; sourceTree = "<group>"; };
-		F4DE22E92959E3BB00BC398A /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		F4DE22EB2959E3BD00BC398A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4DE22F02959E3BD00BC398A /* SpellBoundMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpellBoundMenuBar.entitlements; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		F4DE2302295A08F200BC398A /* OpenAIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIConnector.swift; sourceTree = "<group>"; };
 		F4DE2304295B41C200BC398A /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
 		F4DE2307295B51BC00BC398A /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
-		F4DE230C295DD7AD00BC398A /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Secrets.plist; path = SpellBoundMenuBar/Secrets.plist; sourceTree = "<group>"; };
 		F4DE230F295EEB1700BC398A /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				3107F42E2FD61D01EB207F0D /* WelcomeView.swift */,
+				3107FB8D38B409FBE642790F /* PreferencesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -84,7 +85,6 @@
 		F4DE22DB2959E3BB00BC398A = {
 			isa = PBXGroup;
 			children = (
-				F4DE230C295DD7AD00BC398A /* Secrets.plist */,
 				F4DE22E62959E3BB00BC398A /* SpellBoundMenuBar */,
 				F4DE22E52959E3BB00BC398A /* Products */,
 				F4DE2306295B51BC00BC398A /* Frameworks */,
@@ -94,7 +94,7 @@
 		F4DE22E52959E3BB00BC398A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4DE22E42959E3BB00BC398A /* SpellBound - AI Writing Assistant.app */,
+				F4DE22E42959E3BB00BC398A /* SpellBound AI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,7 +107,6 @@
 				F4DE22FA295A068800BC398A /* Services */,
 				F4DE22F62959ECE800BC398A /* Info.plist */,
 				F4DE22E72959E3BB00BC398A /* SpellBoundMenuBarApp.swift */,
-				F4DE22E92959E3BB00BC398A /* PreferencesView.swift */,
 				F4DE22EB2959E3BD00BC398A /* Assets.xcassets */,
 				F4DE22F02959E3BD00BC398A /* SpellBoundMenuBar.entitlements */,
 				F4DE22ED2959E3BD00BC398A /* Preview Content */,
@@ -131,6 +130,7 @@
 				F4DE22FB295A06A000BC398A /* SBService.swift */,
 				F4DE2302295A08F200BC398A /* OpenAIConnector.swift */,
 				F4DE230F295EEB1700BC398A /* Keychain.swift */,
+				3107FA47680226B048E81DF1 /* GumroadConnector.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 			);
 			name = SpellBoundMenuBar;
 			productName = SpellBoundMenuBar;
-			productReference = F4DE22E42959E3BB00BC398A /* SpellBound - AI Writing Assistant.app */;
+			productReference = F4DE22E42959E3BB00BC398A /* SpellBound AI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -214,7 +214,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4DE22EF2959E3BD00BC398A /* Preview Assets.xcassets in Resources */,
-				F4DE230D295DD7AD00BC398A /* Secrets.plist in Resources */,
 				F4DE22EC2959E3BD00BC398A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,7 +227,6 @@
 			files = (
 				F4DE2301295A07EB00BC398A /* Constants.swift in Sources */,
 				F4DE22FC295A06A000BC398A /* SBService.swift in Sources */,
-				F4DE22EA2959E3BB00BC398A /* PreferencesView.swift in Sources */,
 				F4DE2303295A08F200BC398A /* OpenAIConnector.swift in Sources */,
 				F4DE2305295B41C200BC398A /* AccessibilityHelper.swift in Sources */,
 				F4DE2310295EEB1700BC398A /* Keychain.swift in Sources */,
@@ -237,6 +235,8 @@
 				3107F7EC96071AFFADCDD48B /* DebugWindowController.swift in Sources */,
 				3107F3CA6D9F52D11CE040EB /* UIHelper.swift in Sources */,
 				3107F99E5A4B5AEF4D9B2E11 /* WelcomeView.swift in Sources */,
+				3107F9EEAF21B26B58511003 /* GumroadConnector.swift in Sources */,
+				3107F3502F4584886010E28F /* PreferencesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +367,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpellBoundMenuBar/Preview Content\"";
 				DEVELOPMENT_TEAM = D6K6GHF43V;
@@ -375,15 +375,17 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpellBoundMenuBar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SpellBound;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splbnd.SpellBoundMenuBar;
-				PRODUCT_NAME = "SpellBound - AI Writing Assistant";
+				PRODUCT_NAME = "SpellBound AI";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -407,15 +409,17 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpellBoundMenuBar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SpellBound;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splbnd.SpellBoundMenuBar;
-				PRODUCT_NAME = "SpellBound - AI Writing Assistant";
+				PRODUCT_NAME = "SpellBound AI";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
