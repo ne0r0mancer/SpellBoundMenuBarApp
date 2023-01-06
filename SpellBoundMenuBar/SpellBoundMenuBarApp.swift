@@ -13,24 +13,25 @@ import ApplicationServices
 @main
 struct SpellBoundMenuBarApp: App {
     @State private var isLoading: Bool = false
+    @State private var showFloaterMenu = false
 
     func rewriteWithAI(prefix: String, temperature: Float = 0.0, suffix: String = "\nOutput:") {
         isLoading.toggle()
 
         // check licence key
         let licenceKey = Keychain.shared.retrieve(key: "gumroadKey") ?? ""
-        let licenceIsValid = GumroadConnector.shared.verify(gumroadKey: licenceKey)
-        if licenceIsValid == false {
-            print("Licence is invalid")
-            let alert = NSAlert()
-            alert.messageText = "Licence is invalid"
-            alert.informativeText = "Please enter a valid licence key"
-            alert.alertStyle = .warning
-            alert.addButton(withTitle: "OK")
-            alert.runModal()
-            isLoading.toggle()
-            return
-        }
+//        let licenceIsValid = GumroadConnector.shared.verify(gumroadKey: licenceKey)
+//        if licenceIsValid == false {
+//            print("Licence is invalid")
+//            let alert = NSAlert()
+//            alert.messageText = "Licence is invalid"
+//            alert.informativeText = "Please enter a valid licence key"
+//            alert.alertStyle = .warning
+//            alert.addButton(withTitle: "OK")
+//            alert.runModal()
+//            isLoading.toggle()
+//            return
+//        }
 
         // obtain selected text
         AccessibilityHelper().simulateCmdCKeystroke()
@@ -79,6 +80,10 @@ struct SpellBoundMenuBarApp: App {
                         rewriteWithAI(prefix: "Correct this to standard English:\nInput:", temperature: 0.2)
 
                     }
+                            .keyboardShortcut(
+                                    "G",
+                                    modifiers: [.control, .command]
+                            )
 
                     Button("Français") {
                         print("Correct Grammar pressed")
@@ -174,11 +179,16 @@ struct SpellBoundMenuBarApp: App {
 
 
             }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.gray)
+                    .edgesIgnoringSafeArea(.all)
+                    .keyboardShortcut(
+                            "Q",
+                            modifiers: [.control, .command]
+                    )
 
         }
                 .menuBarExtraStyle(.menu)
-        // on appear
-
 
     }
 }
