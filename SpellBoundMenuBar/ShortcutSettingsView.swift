@@ -19,7 +19,10 @@ struct ShortcutSettingsView: View {
             }
                     .padding(.bottom)
             Section {
-                KeyboardShortcuts.Recorder("Global Shortcuts:", name: .historyShortcuts)
+                KeyboardShortcuts.Recorder("Quick Menu Shortcut:", name: .historyShortcuts)
+                KeyboardShortcuts.Recorder("Correct To English Shortcut:", name: .correctEnglishShortcuts)
+                KeyboardShortcuts.Recorder("Correct To French Shortcut:", name: .correctFrenchShortcuts)
+
             }
                     .padding(.bottom)
         }
@@ -28,6 +31,11 @@ struct ShortcutSettingsView: View {
 
 extension KeyboardShortcuts.Name {
     static let historyShortcuts = Self("commandsShortcuts",
-                                       default: .init(.l, modifiers: [.command, .option, .shift]))
+                                       default: .init(.i, modifiers: [.control, .shift]))
+    static let correctEnglishShortcuts = Self("correctEnglishShortcuts",
+                                     default: .init(.e, modifiers: [.control, .shift]))
+    // french
+    static let correctFrenchShortcuts = Self("correctFrenchShortcuts",
+                                     default: .init(.f, modifiers: [.control, .shift]))
 }
 

@@ -37,10 +37,11 @@ struct SpellBoundMenuBarApp: App {
                     Button("English") {
                         SuggestionsService.correctEnglish()
                     }
-
+                            // add keyboard shortcut
+                            .keyboardShortcut("e", modifiers: [.control, .option, .command])
                     Button("Français") {
-                        SuggestionsService.correctFrench()
-                    }
+                                SuggestionsService.correctFrench()
+                            }
                 } label: {
                     Image(systemName: "globe")
                     Text("Correct Grammar")
@@ -122,6 +123,16 @@ struct SpellBoundMenuBarApp: App {
                         KeyboardShortcuts.onKeyDown(for: .historyShortcuts) {
                             print("historyShortcuts pressed")
                             MenuManager.popupHistoryMenu()
+                        }
+
+                        KeyboardShortcuts.onKeyDown(for: .correctEnglishShortcuts) {
+                            print("correctEnglishShortcuts pressed")
+                            SuggestionsService.correctEnglish()
+                        }
+
+                        // french
+                        KeyboardShortcuts.onKeyDown(for: .correctFrenchShortcuts) {
+                            SuggestionsService.correctFrench()
                         }
                     }
                 }
