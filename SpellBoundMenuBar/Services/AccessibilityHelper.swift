@@ -15,14 +15,14 @@ import CoreGraphics
 // write new struct
 struct AccessibilityHelper {
     // write new function
-    func getSelectedText() -> String {
+    static func getSelectedText() -> String {
         // get selected text
         let selectedText = AXUIElement.focusedElement?.selectedText ?? "not found"
         // return selected text
         return selectedText
     }
 
-    func copyFromClipboard() -> String? {
+    static func copyFromClipboard() -> String? {
         let pasteboard = NSPasteboard.general
         if let pasteboardString = pasteboard.string(forType: .string) {
             return pasteboardString
@@ -30,7 +30,7 @@ struct AccessibilityHelper {
         return nil
     }
 
-    func copyToClipboard(text: String) {
+    static func copyToClipboard(text: String) {
         // Get the general pasteboard
         let pasteboard = NSPasteboard.general
 
@@ -41,7 +41,7 @@ struct AccessibilityHelper {
         pasteboard.writeObjects([text as NSPasteboardWriting])
     }
 
-    func simulateCmdVKeystroke() {
+    static func simulateCmdVKeystroke() {
         // Create a "cmd" keydown event
         let cmdDown = CGEvent(keyboardEventSource: nil, virtualKey: 55, keyDown: true)!
         cmdDown.flags = .maskCommand
@@ -64,7 +64,11 @@ struct AccessibilityHelper {
     }
 
 
-    func simulateCmdCKeystroke() {
+    static func simulateCmdCKeystroke() {
+        guard AccessibilityService.isAccessibilityEnabled(isPrompt: false) else {
+            AccessibilityService.showAccessibilityAuthenticationAlert()
+            return
+        }
         // Create a "cmd" keydown event
         let cmdDown = CGEvent(keyboardEventSource: nil, virtualKey: 55, keyDown: true)!
         cmdDown.flags = .maskCommand

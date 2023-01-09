@@ -1,12 +1,21 @@
 //
-//  ContentView.swift
+//  Main.swift
 //  SpellBoundMenuBar
 //
-//  Created by ne0r0mancer on 12/26/22.
+//  Created by ne0r0mancer on 1/9/23.
 //
 
 import SwiftUI
 
+struct MainScene: Scene {
+    var body: some Scene {
+        WindowGroup(id: "mainscene") {
+            WelcomeView()
+                .fixedSize()
+        }
+        .windowResizability(.contentSize)
+    }
+}
 
 struct WelcomeView: View {
     @State private var welcomeScreenShown: Bool = UserDefaults.standard.bool(forKey: "welcomeScreenShown")

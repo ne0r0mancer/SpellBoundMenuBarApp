@@ -13,7 +13,7 @@ func showPreferences() { // open new window
             backing: .buffered, defer: false)
     window.center()
     window.setFrameAutosaveName("Main Window")
-    window.contentView = NSHostingView(rootView: PreferencesView())
+    window.contentView = NSHostingView(rootView: SettingsView())
     // make window modal
     window.makeKeyAndOrderFront(nil)
     // resize window to fit the content

@@ -9,7 +9,7 @@ import SwiftUI
 import Security
 
 
-struct PreferencesView: View {
+struct KeysView: View {
     private let text: String = "Spellbound will give your writing a sparkle!"
     @State private var openaiKey = Keychain.shared.retrieve(key: "openaiKey") ?? ""
     @State private var gumroadKey = Keychain.shared.retrieve(key: "gumroadKey") ?? ""
@@ -126,6 +126,6 @@ struct PreferencesView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        PreferencesView()
+        KeysView()
     }
 }
