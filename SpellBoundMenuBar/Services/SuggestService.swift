@@ -6,6 +6,8 @@ import Foundation
 import SwiftUI
 
 class SuggestionsService : ObservableObject{
+    static let shared = SuggestionsService()
+    private init() {}
     @Published var isLoading = false
 
     // formal

@@ -18,7 +18,7 @@ struct SpellBoundMenuBarApp: App {
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var dataController = DataController()
     @ObservedObject var menuManager = MenuManager()
-    @ObservedObject var suggestionService = SuggestionsService()
+    @ObservedObject var suggestionService = SuggestionsService.shared
 
     var body: some Scene {
         

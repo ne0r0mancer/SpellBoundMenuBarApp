@@ -10,7 +10,7 @@ import AppKit
 
 class MenuManager: ObservableObject {
     var historyMenu: NSMenu?
-    @ObservedObject var suggestionService = SuggestionsService()
+    @ObservedObject var suggestionService = SuggestionsService.shared
 
     init() {
         historyMenu = NSMenu(title: "SpellBound Pop-Up Menu")
