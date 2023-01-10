@@ -17,7 +17,7 @@ struct AccessibilityHelper {
     // write new function
     static func getSelectedText() -> String {
         // get selected text
-        let selectedText = AXUIElement.focusedElement?.selectedText ?? "not found"
+        let selectedText = AXUIElement.focusedElement?.selectedText ?? ""
         // return selected text
         return selectedText
     }

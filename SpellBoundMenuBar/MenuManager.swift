@@ -8,11 +8,11 @@ import SwiftUI
 import AppKit
 
 
+class MenuManager: ObservableObject {
+    var historyMenu: NSMenu?
+    @ObservedObject var suggestionService = SuggestionsService()
 
-class MenuManager {
-
-    static var historyMenu: NSMenu?
-    static func popupHistoryMenu() {
+    init() {
         historyMenu = NSMenu(title: "SpellBound Pop-Up Menu")
         let labelItem = NSMenuItem(title: "SpellBound", action: nil, keyEquivalent: "")
         labelItem.isEnabled = false
@@ -24,10 +24,10 @@ class MenuManager {
         correctGrammarMenuItem.image = NSImage(systemSymbolName: "globe", accessibilityDescription: nil)
         let correctGrammarMenu = NSMenu(title: "Correct Grammar")
         let item1 = NSMenuItem(title: "English", action: #selector(correctEnglish), keyEquivalent: "0")
-        item1.target = MenuManager.self
+        item1.target = self
         correctGrammarMenu.addItem(item1)
         let item2 = NSMenuItem(title: "French", action: #selector(correctFrench), keyEquivalent: "1")
-        item2.target = MenuManager.self
+        item2.target = self
         correctGrammarMenu.addItem(item2)
         correctGrammarMenuItem.submenu = correctGrammarMenu
 
@@ -37,23 +37,23 @@ class MenuManager {
         let rephraseMenu = NSMenu(title: "Rephrase")
         // formal
         let item3 = NSMenuItem(title: "Formal", action: #selector(rephraseFormal), keyEquivalent: "2")
-        item3.target = MenuManager.self
+        item3.target = self
         rephraseMenu.addItem(item3)
         // friendly
         let item4 = NSMenuItem(title: "Friendly", action: #selector(rephraseFriendly), keyEquivalent: "3")
-        item4.target = MenuManager.self
+        item4.target = self
         rephraseMenu.addItem(item4)
         // concise
         let item5 = NSMenuItem(title: "Concise", action: #selector(rephraseConcise), keyEquivalent: "4")
-        item5.target = MenuManager.self
+        item5.target = self
         rephraseMenu.addItem(item5)
         // descriptive
         let item6 = NSMenuItem(title: "Descriptive", action: #selector(rephraseDescriptive), keyEquivalent: "5")
-        item6.target = MenuManager.self
+        item6.target = self
         rephraseMenu.addItem(item6)
         // poetic
         let item7 = NSMenuItem(title: "Poetic", action: #selector(rephrasePoetic), keyEquivalent: "6")
-        item7.target = MenuManager.self
+        item7.target = self
         rephraseMenu.addItem(item7)
         rephraseMenuItem.submenu = rephraseMenu
 
@@ -64,64 +64,67 @@ class MenuManager {
         // continue writing
         let continueWritingMenuItem = NSMenuItem(title: "Continue ...", action: #selector(continueWriting), keyEquivalent: "c")
         continueWritingMenuItem.image = NSImage(systemSymbolName: "dots.and.line.vertical.and.cursorarrow.rectangle", accessibilityDescription: nil)
-        continueWritingMenuItem.target = MenuManager.self
+        continueWritingMenuItem.target = self
         historyMenu!.addItem(continueWritingMenuItem)
 
         // smart reply
         let smartReplyMenuItem = NSMenuItem(title: "Smart Reply", action: #selector(smartReply), keyEquivalent: "s")
         smartReplyMenuItem.image = NSImage(systemSymbolName: "arrowshape.turn.up.right", accessibilityDescription: nil)
-        smartReplyMenuItem.target = MenuManager.self
+        smartReplyMenuItem.target = self
         historyMenu!.addItem(smartReplyMenuItem)
 
         historyMenu!.addItem(NSMenuItem.separator())
-        
+
         historyMenu!.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+    }
+
+    func popupHistoryMenu() {
         historyMenu!.popUp(positioning: nil, at: NSEvent.mouseLocation, in: nil)
     }
 
     @objc
-    static func correctEnglish(_ sender: NSMenuItem) {
-        SuggestionsService.correctEnglish()
-    }
-    
-    @objc
-    static func correctFrench(_ sender: NSMenuItem) {
-        SuggestionsService.correctFrench()
+    func correctEnglish(_ sender: NSMenuItem) {
+        suggestionService.correctEnglish()
     }
 
     @objc
-    static func rephraseFormal(_ sender: NSMenuItem) {
-        SuggestionsService.rephraseFormal()
+    func correctFrench(_ sender: NSMenuItem) {
+        suggestionService.correctFrench()
     }
 
     @objc
-    static func rephraseFriendly(_ sender: NSMenuItem) {
-        SuggestionsService.rephraseFriendly()
+    func rephraseFormal(_ sender: NSMenuItem) {
+        suggestionService.rephraseFormal()
     }
 
     @objc
-    static func rephraseConcise(_ sender: NSMenuItem) {
-        SuggestionsService.rephraseConcise()
+    func rephraseFriendly(_ sender: NSMenuItem) {
+        suggestionService.rephraseFriendly()
     }
 
     @objc
-    static func rephraseDescriptive(_ sender: NSMenuItem) {
-        SuggestionsService.rephraseDescriptive()
+    func rephraseConcise(_ sender: NSMenuItem) {
+        suggestionService.rephraseConcise()
     }
 
     @objc
-    static func rephrasePoetic(_ sender: NSMenuItem) {
-        SuggestionsService.rephrasePoetic()
+    func rephraseDescriptive(_ sender: NSMenuItem) {
+        suggestionService.rephraseDescriptive()
     }
 
     @objc
-    static func smartReply(_ sender: NSMenuItem) {
-        SuggestionsService.smartReply()
+    func rephrasePoetic(_ sender: NSMenuItem) {
+        suggestionService.rephrasePoetic()
     }
 
     @objc
-    static func continueWriting(_ sender: NSMenuItem) {
-        SuggestionsService.continueWriting()
+    func smartReply(_ sender: NSMenuItem) {
+        suggestionService.smartReply()
+    }
+
+    @objc
+    func continueWriting(_ sender: NSMenuItem) {
+        suggestionService.continueWriting()
     }
 
 

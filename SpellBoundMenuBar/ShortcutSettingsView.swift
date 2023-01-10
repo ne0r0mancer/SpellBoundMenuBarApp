@@ -22,6 +22,8 @@ struct ShortcutSettingsView: View {
                 KeyboardShortcuts.Recorder("Quick Menu Shortcut:", name: .historyShortcuts)
                 KeyboardShortcuts.Recorder("Correct To English Shortcut:", name: .correctEnglishShortcuts)
                 KeyboardShortcuts.Recorder("Correct To French Shortcut:", name: .correctFrenchShortcuts)
+                KeyboardShortcuts.Recorder("Smart Reply Shortcut:", name: .smartReplyShortcuts)
+                KeyboardShortcuts.Recorder("Continue Writing Shortcut:", name: .continueWritingShortcuts)
 
             }
                     .padding(.bottom)
@@ -37,5 +39,13 @@ extension KeyboardShortcuts.Name {
     // french
     static let correctFrenchShortcuts = Self("correctFrenchShortcuts",
                                      default: .init(.f, modifiers: [.control, .shift]))
+
+    // smart reply
+    static let smartReplyShortcuts = Self("smartReplyShortcuts",
+                                     default: .init(.r, modifiers: [.control, .shift]))
+
+    // continue writing
+    static let continueWritingShortcuts = Self("continueWritingShortcuts",
+                                     default: .init(.c, modifiers: [.control, .shift]))
 }
 

@@ -15,11 +15,10 @@ import KeyboardShortcuts
 
 @main
 struct SpellBoundMenuBarApp: App {
-    @State private var isLoading: Bool = false
-    @State private var showFloaterMenu = false
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var dataController = DataController()
-
+    @ObservedObject var menuManager = MenuManager()
+    @ObservedObject var suggestionService = SuggestionsService()
 
     var body: some Scene {
         
@@ -28,20 +27,22 @@ struct SpellBoundMenuBarApp: App {
             SettingsView()
                     .environment(\.managedObjectContext, dataController.container.viewContext)
         }
-        MenuBarExtra("SpellBound App", systemImage: isLoading ? "zzz" : "sparkles") {
+        MenuBarExtra("SpellBound App", systemImage: suggestionService.isLoading ? "zzz" : "sparkles") {
             VStack(alignment: .leading) {
                 Text("Spellbound will give your writing a sparkle!")
 
                 // Correct spelling menu
                 Menu {
                     Button("English") {
-                        SuggestionsService.correctEnglish()
+                        print("English")
+                        suggestionService.correctEnglish()
                     }
                             // add keyboard shortcut
                             .keyboardShortcut("e", modifiers: [.control, .option, .command])
                     Button("Français") {
-                                SuggestionsService.correctFrench()
-                            }
+
+                        suggestionService.correctFrench()
+                    }
                 } label: {
                     Image(systemName: "globe")
                     Text("Correct Grammar")
@@ -50,19 +51,19 @@ struct SpellBoundMenuBarApp: App {
                 // rewrite menu
                 Menu {
                     Button("Formal") {
-                        SuggestionsService.rephraseFormal()
+                        suggestionService.rephraseFormal()
                     }
                     Button("Friendly") {
-                        SuggestionsService.rephraseFriendly()
+                        suggestionService.rephraseFriendly()
                     }
                     Button("Concise") {
-                        SuggestionsService.rephraseConcise()
+                        suggestionService.rephraseConcise()
                     }
                     Button("Descriptive") {
-                        SuggestionsService.rephraseDescriptive()
+                        suggestionService.rephraseDescriptive()
                     }
                     Button("Poetic") {
-                        SuggestionsService.rephrasePoetic()
+                        suggestionService.rephrasePoetic()
                     }
                 } label: {
                     Image(systemName: "arrow.2.circlepath")
@@ -70,7 +71,7 @@ struct SpellBoundMenuBarApp: App {
                 }
 
                 Button {
-                    SuggestionsService.continueWriting()
+                    suggestionService.continueWriting()
                 } label: {
                     Image(systemName: "dots.and.line.vertical.and.cursorarrow.rectangle")
                     Text("Continue ...")
@@ -78,7 +79,7 @@ struct SpellBoundMenuBarApp: App {
 
 
                 Button {
-                    SuggestionsService.smartReply()
+                    suggestionService.smartReply()
                 } label: {
                     Image(systemName: "arrowshape.turn.up.right")
                     Text("Smart Reply")
@@ -92,6 +93,7 @@ struct SpellBoundMenuBarApp: App {
                     Image(systemName: "gearshape")
                     Text("Preferences")
                 }
+
 
                 // link to support
                 Button {
@@ -119,23 +121,33 @@ struct SpellBoundMenuBarApp: App {
                     print("phase: \(phase)")
                     if phase == .active {
                         AccessibilityService.isAccessibilityEnabled(isPrompt: true)
-
                         KeyboardShortcuts.onKeyDown(for: .historyShortcuts) {
                             print("historyShortcuts pressed")
-                            MenuManager.popupHistoryMenu()
+                            menuManager.popupHistoryMenu()
                         }
 
                         KeyboardShortcuts.onKeyDown(for: .correctEnglishShortcuts) {
                             print("correctEnglishShortcuts pressed")
-                            SuggestionsService.correctEnglish()
+                            suggestionService.correctEnglish()
                         }
 
                         // french
                         KeyboardShortcuts.onKeyDown(for: .correctFrenchShortcuts) {
-                            SuggestionsService.correctFrench()
+                            suggestionService.correctFrench()
+                        }
+
+                        // smart reply
+                        KeyboardShortcuts.onKeyDown(for: .smartReplyShortcuts) {
+                            suggestionService.smartReply()
+                        }
+
+                        // continue writing
+                        KeyboardShortcuts.onKeyDown(for: .continueWritingShortcuts) {
+                            suggestionService.continueWriting()
                         }
                     }
                 }
+
                     
                 
 
