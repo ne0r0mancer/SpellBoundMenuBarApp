@@ -21,7 +21,7 @@ struct SettingsView: View {
 
             ShortcutSettingsView()
                     .tabItem {
-                        Label("ShortCuts", systemImage: "gear")
+                        Label("Hotkeys", systemImage: "gear")
                     }
                     .tag(Tabs.shortcuts)
             
@@ -32,7 +32,7 @@ struct SettingsView: View {
                 .tag(Tabs.about)
         }
         .padding(20)
-        .frame(width: 800, height: 500)
+        .frame(width: 800, height: 300)
     }
 }
 

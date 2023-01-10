@@ -84,29 +84,34 @@ struct KeysView: View {
                 // check gumroad key
                 if (gumroadKey != "") {
                     print("Checking Gumroad key")
-                    let connector = GumroadConnector()
-                    if connector.verify(gumroadKey: gumroadKey) {
-                        print("Gumroad key is valid")
-                        gumroadKeyIsValid = true
-                        // save keys to keychain
-                        do {
-                            // storing data in keychain
-                            try Keychain.shared.store(key: "openaiKey", value: openaiKey)
-                            try Keychain.shared.store(key: "gumroadKey", value: gumroadKey)
 
-                        } catch {
-                            print("Error saving key to keychain")
-                        }
+                    // check gumroadKey key now
+                    // change if we want to check it on save
+                    let checkGumroadKey = true
+                    gumroadKeyIsValid = GumroadConnector.shared.verify(gumroadKey: gumroadKey)
+
+
+                    // save keys to keychain
+                    do {
+                        // storing data in keychain
+                        try Keychain.shared.store(key: "openaiKey", value: openaiKey)
+                        try Keychain.shared.store(key: "gumroadKey", value: gumroadKey)
+
+                    } catch {
+                        print("Error saving key to keychain")
+                    }
+
+                    if gumroadKeyIsValid {
+                        print("Gumroad key is valid")
                     } else {
                         print("Gumroad key is invalid")
-                        gumroadKeyIsValid = false
-                        // show error
-                        let alert = NSAlert()
-                        alert.messageText = "Gumroad key is invalid"
-                        alert.informativeText = "Please check your Gumroad key and try again."
-                        alert.alertStyle = .warning
-                        alert.addButton(withTitle: "OK")
-                        alert.runModal()
+                        // show alert
+//                        let alert = NSAlert()
+//                        alert.messageText = "Gumroad key is invalid"
+//                        alert.informativeText = "Please check your Gumroad key and try again."
+//                        alert.alertStyle = .warning
+//                        alert.addButton(withTitle: "OK")
+//                        alert.runModal()
                     }
                 } else {
                     print("Gumroad key is empty")
@@ -119,13 +124,22 @@ struct KeysView: View {
             }
                     // disable save button if no keys are entered
                     .disabled(openaiKey == "" || gumroadKey == "" || saveDisabled)
+                    .onAppear {
+                        // check if keys are valid
+                        if (gumroadKey != "") {
+                            print("Checking Gumroad key")
+                            gumroadKeyIsValid = GumroadConnector.shared.verify(gumroadKey: gumroadKey)
+
+                        }
+
+                    }
         }
                 .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        KeysView()
-    }
-}
+        struct ContentView_Previews: PreviewProvider {
+            static var previews: some View {
+                KeysView()
+            }
+        }

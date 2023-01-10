@@ -23,6 +23,7 @@
 		F434D7F8296C4D360024AD6E /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = F434D7F7296C4D360024AD6E /* KeyboardShortcuts */; };
 		F434D7FA296C4D880024AD6E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434D7F9296C4D880024AD6E /* SettingsView.swift */; };
 		F434D7FD296C5FC10024AD6E /* SpellBound.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F434D7FB296C5FC10024AD6E /* SpellBound.xcdatamodeld */; };
+		F434D7FF296DCF650024AD6E /* LicenceExpiredListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434D7FE296DCF650024AD6E /* LicenceExpiredListener.swift */; };
 		F4DE22E82959E3BB00BC398A /* SpellBoundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E72959E3BB00BC398A /* SpellBoundApp.swift */; };
 		F4DE22EC2959E3BD00BC398A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EB2959E3BD00BC398A /* Assets.xcassets */; };
 		F4DE22EF2959E3BD00BC398A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		F434D7F1296C4CAF0024AD6E /* ShortcutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSettingsView.swift; sourceTree = "<group>"; };
 		F434D7F9296C4D880024AD6E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F434D7FC296C5FC10024AD6E /* SpellBound.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpellBound.xcdatamodel; sourceTree = "<group>"; };
+		F434D7FE296DCF650024AD6E /* LicenceExpiredListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenceExpiredListener.swift; sourceTree = "<group>"; };
 		F4DE22E42959E3BB00BC398A /* SpellBound AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpellBound AI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DE22E72959E3BB00BC398A /* SpellBoundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellBoundApp.swift; sourceTree = "<group>"; };
 		F4DE22EB2959E3BD00BC398A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				3107F82DA16331342AE7043C /* MenuManager.swift */,
 				3107F71DAAD2650023DD7141 /* DataController.swift */,
 				F434D7FB296C5FC10024AD6E /* SpellBound.xcdatamodeld */,
+				F434D7FE296DCF650024AD6E /* LicenceExpiredListener.swift */,
 			);
 			path = SpellBoundMenuBar;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				F4DE2303295A08F200BC398A /* OpenAIConnector.swift in Sources */,
 				F434D7EE296C491D0024AD6E /* Main.swift in Sources */,
 				F4DE2310295EEB1700BC398A /* Keychain.swift in Sources */,
+				F434D7FF296DCF650024AD6E /* LicenceExpiredListener.swift in Sources */,
 				F434D7FD296C5FC10024AD6E /* SpellBound.xcdatamodeld in Sources */,
 				F434D7FA296C4D880024AD6E /* SettingsView.swift in Sources */,
 				F4DE22FE295A074F00BC398A /* SBCorrection.swift in Sources */,

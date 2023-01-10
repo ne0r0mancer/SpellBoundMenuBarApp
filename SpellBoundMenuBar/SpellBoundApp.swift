@@ -27,6 +27,8 @@ struct SpellBoundMenuBarApp: App {
             SettingsView()
                     .environment(\.managedObjectContext, dataController.container.viewContext)
         }
+
+        
         MenuBarExtra("SpellBound App", systemImage: suggestionService.isLoading ? "bubbles.and.sparkles" : "sparkle") {
             VStack(alignment: .leading) {
                 Text("Spellbound will give your writing a sparkle!")
@@ -141,26 +143,6 @@ struct SpellBoundMenuBarApp: App {
                             print("historyShortcuts pressed")
                             menuManager.popupHistoryMenu()
                         }
-
-//                        KeyboardShortcuts.onKeyDown(for: .correctEnglishShortcuts) {
-//                            print("correctEnglishShortcuts pressed")
-//                            suggestionService.correctEnglish()
-//                        }
-//
-//                        // french
-//                        KeyboardShortcuts.onKeyDown(for: .correctFrenchShortcuts) {
-//                            suggestionService.correctFrench()
-//                        }
-//
-//                        // smart reply
-//                        KeyboardShortcuts.onKeyDown(for: .smartReplyShortcuts) {
-//                            suggestionService.smartReply()
-//                        }
-//
-//                        // continue writing
-//                        KeyboardShortcuts.onKeyDown(for: .continueWritingShortcuts) {
-//                            suggestionService.continueWriting()
-//                        }
                     }
                 }
 

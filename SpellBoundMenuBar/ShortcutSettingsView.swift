@@ -19,7 +19,7 @@ struct ShortcutSettingsView: View {
             }
                     .padding(.bottom)
             Section {
-                KeyboardShortcuts.Recorder("Quick Menu Shortcut(System Wide): ", name: .quickMenuShortcuts)
+                KeyboardShortcuts.Recorder("Quick Action Menu: ", name: .quickMenuShortcuts)
 //                KeyboardShortcuts.Recorder("Correct To English Shortcut:", name: .correctEnglishShortcuts)
 //                KeyboardShortcuts.Recorder("Correct To French Shortcut:", name: .correctFrenchShortcuts)
 //                KeyboardShortcuts.Recorder("Smart Reply Shortcut:", name: .smartReplyShortcuts)

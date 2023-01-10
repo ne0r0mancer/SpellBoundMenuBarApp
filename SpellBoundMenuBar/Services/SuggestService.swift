@@ -5,15 +5,19 @@
 import Foundation
 import SwiftUI
 
-class SuggestionsService : ObservableObject{
+class SuggestionsService: ObservableObject {
     static let shared = SuggestionsService()
-    private init() {}
+
+    private init() {
+    }
+
     @Published var isLoading = false
 
     // formal
     func rephraseFormal() {
         suggest(prefix: "Rephrase the following into a highly professional statement,\nInput:", temperature: 0.5)
     }
+
     // friendly
     func rephraseFriendly() {
         suggest(prefix: "Rephrase the following into a friendly written statement,\nInput:", temperature: 0.5)
@@ -53,25 +57,13 @@ class SuggestionsService : ObservableObject{
     }
 
     func suggest(prefix: String, temperature: Float = 0.0, suffix: String = "\nOutput:") {
-        
+
         // Start loading
         self.isLoading.toggle()
         print("Loading started")
 
-        // check licence key
+        
         let licenceKey = Keychain.shared.retrieve(key: "gumroadKey") ?? ""
-//        let licenceIsValid = GumroadConnector.shared.verify(gumroadKey: licenceKey)
-//        if licenceIsValid == false {
-//            print("Licence is invalid")
-//            let alert = NSAlert()
-//            alert.messageText = "Licence is invalid"
-//            alert.informativeText = "Please enter a valid licence key"
-//            alert.alertStyle = .warning
-//            alert.addButton(withTitle: "OK")
-//            alert.runModal()
-//            isLoading.toggle()
-//            return
-//        }
 
         // obtain selected text
         AccessibilityHelper.simulateCmdCKeystroke()
@@ -86,11 +78,22 @@ class SuggestionsService : ObservableObject{
 
         let finalPrompt = prefix + prompt + suffix
 
-//        print("Final prompt:", finalPrompt)
-
         // make call async
         DispatchQueue.global(qos: .background).async {
-            // make call
+
+            //1. check licence key is valid
+            let licenseIsValid = GumroadConnector.shared.verify(gumroadKey: licenceKey)
+            if licenseIsValid {
+                print("Licence is VALID")
+            } else {
+                print("Licence is INVALID")
+                LicenseExpiredListener.shared.licenseExpired()
+                // toggle isLoading
+                self.isLoading.toggle()
+                return
+            }
+
+            // 2. make call to API
             let response: String = OpenAIConnector().processPrompt(prompt: finalPrompt, temperature: temperature) ?? "error"
             print("Output detected:", response)
             // copy to clipboard
@@ -103,6 +106,6 @@ class SuggestionsService : ObservableObject{
                 print("Loading finished")
             }
         }
-        
+
     }
 }

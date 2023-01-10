@@ -7,28 +7,6 @@ import CoreGraphics
 import AppKit
 
 class PasteService {
-//    static func paste() {
-//        // Accessibility permission is required for paste command from macOS 10.14 Mojave.
-//        // For macOS 10.14 and later only, check accessibility permission at startup and paste
-//        guard #available(macOS 10.14, *) else {
-//            pasteText()
-//            return
-//        }
-//
-//        if AccessibilityService.isAccessibilityEnabled(isPrompt: false) {
-//            pasteText()
-//        } else {
-//            AccessibilityService.showAccessibilityAuthenticationAlert()
-//        }
-//    }
-
-//    private static func pasteText() {
-//        let pasteboard = NSPasteboard.general
-//        pasteboard.clearContents()
-//        pasteboard.setString("Hello World", forType: .string)
-//        NSApp.sendAction(#selector(NSResponder.paste(_:)), to: nil, from: nil)
-//    }
-
     static func paste() {
         guard AccessibilityService.isAccessibilityEnabled(isPrompt: false) else {
             AccessibilityService.showAccessibilityAuthenticationAlert()
