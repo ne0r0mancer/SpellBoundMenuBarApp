@@ -13,18 +13,18 @@ struct SettingsView: View {
     }
     var body: some View {
         TabView {
-            ShortcutSettingsView()
-                    .tabItem {
-                        Label("ShortCuts", systemImage: "gear")
-                    }
-                    .tag(Tabs.shortcuts)
             KeysView()
                 .tabItem {
                     Label("Keys", systemImage: "bubbles.and.sparkles")
                 }
                 .tag(Tabs.keys)
 
-
+            ShortcutSettingsView()
+                    .tabItem {
+                        Label("ShortCuts", systemImage: "gear")
+                    }
+                    .tag(Tabs.shortcuts)
+            
             AboutSettingsView()
                 .tabItem {
                     Label("About", systemImage: "timelapse")

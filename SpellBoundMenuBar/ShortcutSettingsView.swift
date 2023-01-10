@@ -19,11 +19,11 @@ struct ShortcutSettingsView: View {
             }
                     .padding(.bottom)
             Section {
-                KeyboardShortcuts.Recorder("Quick Menu Shortcut:", name: .historyShortcuts)
-                KeyboardShortcuts.Recorder("Correct To English Shortcut:", name: .correctEnglishShortcuts)
-                KeyboardShortcuts.Recorder("Correct To French Shortcut:", name: .correctFrenchShortcuts)
-                KeyboardShortcuts.Recorder("Smart Reply Shortcut:", name: .smartReplyShortcuts)
-                KeyboardShortcuts.Recorder("Continue Writing Shortcut:", name: .continueWritingShortcuts)
+                KeyboardShortcuts.Recorder("Quick Menu Shortcut(System Wide): ", name: .quickMenuShortcuts)
+//                KeyboardShortcuts.Recorder("Correct To English Shortcut:", name: .correctEnglishShortcuts)
+//                KeyboardShortcuts.Recorder("Correct To French Shortcut:", name: .correctFrenchShortcuts)
+//                KeyboardShortcuts.Recorder("Smart Reply Shortcut:", name: .smartReplyShortcuts)
+//                KeyboardShortcuts.Recorder("Continue Writing Shortcut:", name: .continueWritingShortcuts)
 
             }
                     .padding(.bottom)
@@ -32,20 +32,20 @@ struct ShortcutSettingsView: View {
 }
 
 extension KeyboardShortcuts.Name {
-    static let historyShortcuts = Self("commandsShortcuts",
-                                       default: .init(.i, modifiers: [.control, .shift]))
-    static let correctEnglishShortcuts = Self("correctEnglishShortcuts",
-                                     default: .init(.e, modifiers: [.control, .shift]))
-    // french
-    static let correctFrenchShortcuts = Self("correctFrenchShortcuts",
-                                     default: .init(.f, modifiers: [.control, .shift]))
-
-    // smart reply
-    static let smartReplyShortcuts = Self("smartReplyShortcuts",
-                                     default: .init(.r, modifiers: [.control, .shift]))
-
-    // continue writing
-    static let continueWritingShortcuts = Self("continueWritingShortcuts",
-                                     default: .init(.c, modifiers: [.control, .shift]))
+    static let quickMenuShortcuts = Self("quickMenuShortcuts",
+                                         default: .init(.i, modifiers: [.control, .shift, .command]))
+//    static let correctEnglishShortcuts = Self("correctEnglishShortcuts",
+//                                     default: .init(.e, modifiers: [.control, .shift]))
+//    // french
+//    static let correctFrenchShortcuts = Self("correctFrenchShortcuts",
+//                                     default: .init(.f, modifiers: [.control, .shift]))
+//
+//    // smart reply
+//    static let smartReplyShortcuts = Self("smartReplyShortcuts",
+//                                     default: .init(.r, modifiers: [.control, .shift]))
+//
+//    // continue writing
+//    static let continueWritingShortcuts = Self("continueWritingShortcuts",
+//                                     default: .init(.c, modifiers: [.control, .shift]))
 }
 

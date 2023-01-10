@@ -8,9 +8,9 @@ import SwiftUI
 import AppKit
 
 
-class MenuManager: ObservableObject {
+class MenuManager{
     var historyMenu: NSMenu?
-    @ObservedObject var suggestionService = SuggestionsService.shared
+    var suggestionService = SuggestionsService.shared
 
     init() {
         historyMenu = NSMenu(title: "SpellBound Pop-Up Menu")
@@ -23,10 +23,10 @@ class MenuManager: ObservableObject {
         let correctGrammarMenuItem = NSMenuItem(title: "Correct Grammar", action: nil, keyEquivalent: "g")
         correctGrammarMenuItem.image = NSImage(systemSymbolName: "globe", accessibilityDescription: nil)
         let correctGrammarMenu = NSMenu(title: "Correct Grammar")
-        let item1 = NSMenuItem(title: "English", action: #selector(correctEnglish), keyEquivalent: "0")
+        let item1 = NSMenuItem(title: "English", action: #selector(correctEnglish), keyEquivalent: "e")
         item1.target = self
         correctGrammarMenu.addItem(item1)
-        let item2 = NSMenuItem(title: "French", action: #selector(correctFrench), keyEquivalent: "1")
+        let item2 = NSMenuItem(title: "French", action: #selector(correctFrench), keyEquivalent: "f")
         item2.target = self
         correctGrammarMenu.addItem(item2)
         correctGrammarMenuItem.submenu = correctGrammarMenu
@@ -34,25 +34,25 @@ class MenuManager: ObservableObject {
         // add rephrase submenu
         let rephraseMenuItem = NSMenuItem(title: "Rephrase", action: nil, keyEquivalent: "r")
         rephraseMenuItem.image = NSImage(systemSymbolName: "arrow.2.circlepath", accessibilityDescription: nil)
-        let rephraseMenu = NSMenu(title: "Rephrase")
+        let rephraseMenu = NSMenu(title: "Rephrase ...")
         // formal
-        let item3 = NSMenuItem(title: "Formal", action: #selector(rephraseFormal), keyEquivalent: "2")
+        let item3 = NSMenuItem(title: "Formal", action: #selector(rephraseFormal), keyEquivalent: "1")
         item3.target = self
         rephraseMenu.addItem(item3)
         // friendly
-        let item4 = NSMenuItem(title: "Friendly", action: #selector(rephraseFriendly), keyEquivalent: "3")
+        let item4 = NSMenuItem(title: "Friendly", action: #selector(rephraseFriendly), keyEquivalent: "2")
         item4.target = self
         rephraseMenu.addItem(item4)
         // concise
-        let item5 = NSMenuItem(title: "Concise", action: #selector(rephraseConcise), keyEquivalent: "4")
+        let item5 = NSMenuItem(title: "Concise", action: #selector(rephraseConcise), keyEquivalent: "3")
         item5.target = self
         rephraseMenu.addItem(item5)
         // descriptive
-        let item6 = NSMenuItem(title: "Descriptive", action: #selector(rephraseDescriptive), keyEquivalent: "5")
+        let item6 = NSMenuItem(title: "Descriptive", action: #selector(rephraseDescriptive), keyEquivalent: "4")
         item6.target = self
         rephraseMenu.addItem(item6)
         // poetic
-        let item7 = NSMenuItem(title: "Poetic", action: #selector(rephrasePoetic), keyEquivalent: "6")
+        let item7 = NSMenuItem(title: "Poetic", action: #selector(rephrasePoetic), keyEquivalent: "5")
         item7.target = self
         rephraseMenu.addItem(item7)
         rephraseMenuItem.submenu = rephraseMenu
@@ -68,7 +68,7 @@ class MenuManager: ObservableObject {
         historyMenu!.addItem(continueWritingMenuItem)
 
         // smart reply
-        let smartReplyMenuItem = NSMenuItem(title: "Smart Reply", action: #selector(smartReply), keyEquivalent: "s")
+        let smartReplyMenuItem = NSMenuItem(title: "Smart Reply", action: #selector(smartReply), keyEquivalent: "r")
         smartReplyMenuItem.image = NSImage(systemSymbolName: "arrowshape.turn.up.right", accessibilityDescription: nil)
         smartReplyMenuItem.target = self
         historyMenu!.addItem(smartReplyMenuItem)
