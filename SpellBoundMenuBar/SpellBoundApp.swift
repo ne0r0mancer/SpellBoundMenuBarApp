@@ -29,77 +29,177 @@ struct SpellBoundMenuBarApp: App {
         }
 
         
-        MenuBarExtra("SpellBound App", systemImage: suggestionService.isLoading ? "bubbles.and.sparkles" : "sparkle") {
+        MenuBarExtra("SpellBound App", systemImage: suggestionService.isLoading ? "waveform.path" : "sparkle") {
             VStack(alignment: .leading) {
-                Text("Spellbound will give your writing a sparkle!")
+                Text("SpellBound: Your writing rescue")
 
-                // Correct spelling menu
-                Menu {
-                    Button("English") {
-                        print("English")
-                        suggestionService.correctEnglish()
-                    }
-                            // add keyboard shortcut
-                            .keyboardShortcut("e")
-                    Button("Français") {
-
-                        suggestionService.correctFrench()
-
-                    }
-                            .keyboardShortcut("f")
+                Button {
+                    suggestionService.correctGrammar()
                 } label: {
-                    Image(systemName: "globe")
-                    Text("Correct Grammar")
+                    Image(systemName: "paintbrush.pointed.fill")
+                    Text("Grammar Genius")
                 }
+                        .keyboardShortcut("g")
 
-                // rewrite menu
+                // tone menu
                 Menu {
+                    // formal
                     Button("Formal") {
                         suggestionService.rephraseFormal()
 
                     }
-                            .keyboardShortcut("1")
-                    Button("Friendly") {
+                            .keyboardShortcut("0")
+
+                    // casual
+                    Button("Casual") {
                         suggestionService.rephraseFriendly()
 
                     }
-                            .keyboardShortcut("2")
+                            .keyboardShortcut("1")
+
                     Button("Concise") {
                         suggestionService.rephraseConcise()
 
                     }
-                            .keyboardShortcut("3")
+                            .keyboardShortcut("2")
                     Button("Descriptive") {
                         suggestionService.rephraseDescriptive()
 
                     }
+                            .keyboardShortcut("3")
+
+                    // viral
+                    Button("Viral") {
+                        suggestionService.rephraseViral()
+
+                    }
                             .keyboardShortcut("4")
-                    Button("Poetic") {
-                        suggestionService.rephrasePoetic()
+                    
+                    // punchy
+                    Button("Punchy") {
+                        suggestionService.rephrasePunchy()
+
+                    }
+                            .keyboardShortcut("4")
+
+                    // emotional
+                    Button("Emotional") {
+                        suggestionService.rephraseEmotional()
 
                     }
                             .keyboardShortcut("5")
+
+                    // inspirational
+                    Button("Inspiring") {
+                        suggestionService.rephraseInspirational()
+
+                    }
+                            .keyboardShortcut("6")
+
+                    // Humorous
+                    Button("Humorous") {
+                        suggestionService.rephraseHumorous()
+
+                    }
+                            .keyboardShortcut("7")
+
+                    // sarcastic
+                    Button("Sarcastic") {
+                        suggestionService.rephraseSarcastic()
+
+                    }
+                            .keyboardShortcut("8")
+
                 } label: {
-                    Image(systemName: "arrow.2.circlepath")
-                    Text("Rephrase ...")
+                    Image(systemName: "bolt.fill")
+                    Text("Tone Wizzard")
                 }
+
 
                 Button {
                     suggestionService.continueWriting()
                 } label: {
-                    Image(systemName: "dots.and.line.vertical.and.cursorarrow.rectangle")
-                    Text("Continue ...")
+                    Image(systemName: "sparkles")
+                    Text("Write On")
                 }
-                        .keyboardShortcut("c")
+                        .keyboardShortcut("w")
 
 
                 Button {
                     suggestionService.smartReply()
                 } label: {
-                    Image(systemName: "arrowshape.turn.up.right")
-                    Text("Smart Reply")
+                    Image(systemName: "flame")
+                    Text("Quickfire Replies")
                 }
                         .keyboardShortcut("r")
+                
+                Button {
+                    suggestionService.rephraseTextToCode()
+                } label: {
+                    Image(systemName: "number.square.fill")
+                    Text("Text to Code")
+                }
+                        .keyboardShortcut("t")
+
+                // translate menu
+                Menu {
+                    Button("to English") {
+                        suggestionService.translateToEnglish()
+                    }
+
+                    Button("to French") {
+                        suggestionService.translateToFrench()
+                    }
+
+                    // german
+                    Button("to German") {
+                        suggestionService.translateToGerman()
+                    }
+
+                    // spanish
+                    Button("to Spanish") {
+                        suggestionService.translateToSpanish()
+                    }
+
+                    // italian
+                    Button("to Italian") {
+                        suggestionService.translateToItalian()
+                    }
+
+                    // portuguese
+
+                    Button("to Portuguese") {
+                        suggestionService.translateToPortuguese()
+                    }
+
+                    // chinese
+
+                    Button("to Chinese") {
+                        suggestionService.translateToChinese()
+                    }
+
+                    // japanese
+
+                    Button("to Japanese") {
+                        suggestionService.translateToJapanese()
+                    }
+
+                    // korean
+
+                    Button("to Korean") {
+                        suggestionService.translateToKorean()
+                    }
+
+                    // hindi
+                    Button("to Hindi") {
+                        suggestionService.translateToHindi()
+                    }
+
+
+                } label: {
+                    Image(systemName: "globe")
+                    Text("Translate")
+                }
 
                 // preferences menu
                 Button {
@@ -117,11 +217,9 @@ struct SpellBoundMenuBarApp: App {
                     NSWorkspace.shared.open(URL(string: "https://support.spellbound.cc")!)
                 } label: {
                     Image(systemName: "link")
-                    Text("Help & Support")
-                            .foregroundColor(.blue)
+                    Text("Help")
                 }
 
-                Divider()
                 Button("Quit") {
                     NSApp.terminate(nil)
                 }

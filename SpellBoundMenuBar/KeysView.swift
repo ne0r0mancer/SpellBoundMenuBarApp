@@ -10,7 +10,7 @@ import Security
 
 
 struct KeysView: View {
-    private let text: String = "Spellbound will give your writing a sparkle!"
+    private let text: String = "Your writing rescue"
     @State private var openaiKey = Keychain.shared.retrieve(key: "openaiKey") ?? ""
     @State private var gumroadKey = Keychain.shared.retrieve(key: "gumroadKey") ?? ""
     @State private var gumroadKeyIsValid = true // by default it is valid, will be re-evaluated on change
@@ -19,7 +19,7 @@ struct KeysView: View {
 
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "sparkle")
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
             Text(text)

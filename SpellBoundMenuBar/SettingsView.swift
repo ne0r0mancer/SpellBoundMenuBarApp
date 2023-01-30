@@ -15,13 +15,13 @@ struct SettingsView: View {
         TabView {
             KeysView()
                 .tabItem {
-                    Label("Keys", systemImage: "bubbles.and.sparkles")
+                    Label("Tokens", systemImage: "bubbles.and.sparkles")
                 }
                 .tag(Tabs.keys)
 
             ShortcutSettingsView()
                     .tabItem {
-                        Label("Hotkeys", systemImage: "gear")
+                        Label("Shortcuts", systemImage: "gear")
                     }
                     .tag(Tabs.shortcuts)
             
