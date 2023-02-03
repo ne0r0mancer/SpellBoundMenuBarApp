@@ -19,11 +19,11 @@
 		F434D7EE296C491D0024AD6E /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434D7ED296C491D0024AD6E /* Main.swift */; };
 		F434D7F0296C4B400024AD6E /* AboutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434D7EF296C4B400024AD6E /* AboutSettingsView.swift */; };
 		F434D7F2296C4CAF0024AD6E /* ShortcutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434D7F1296C4CAF0024AD6E /* ShortcutSettingsView.swift */; };
-		F434D7F5296C4D1A0024AD6E /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F434D7F4296C4D1A0024AD6E /* LaunchAtLogin */; };
 		F434D7F8296C4D360024AD6E /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = F434D7F7296C4D360024AD6E /* KeyboardShortcuts */; };
 		F434D7FA296C4D880024AD6E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434D7F9296C4D880024AD6E /* SettingsView.swift */; };
 		F434D7FD296C5FC10024AD6E /* SpellBound.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F434D7FB296C5FC10024AD6E /* SpellBound.xcdatamodeld */; };
 		F434D7FF296DCF650024AD6E /* LicenceExpiredListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434D7FE296DCF650024AD6E /* LicenceExpiredListener.swift */; };
+		F4D52BC6298D0E0400350213 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F4D52BC5298D0E0400350213 /* LaunchAtLogin */; };
 		F4DE22E82959E3BB00BC398A /* SpellBoundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE22E72959E3BB00BC398A /* SpellBoundApp.swift */; };
 		F4DE22EC2959E3BD00BC398A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EB2959E3BD00BC398A /* Assets.xcassets */; };
 		F4DE22EF2959E3BD00BC398A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DE22EE2959E3BD00BC398A /* Preview Assets.xcassets */; };
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F434D7F5296C4D1A0024AD6E /* LaunchAtLogin in Frameworks */,
+				F4D52BC6298D0E0400350213 /* LaunchAtLogin in Frameworks */,
 				F4DE2309295B530500BC398A /* ApplicationServices.framework in Frameworks */,
 				F434D7F8296C4D360024AD6E /* KeyboardShortcuts in Frameworks */,
 			);
@@ -185,8 +185,8 @@
 			);
 			name = SpellBoundMenuBar;
 			packageProductDependencies = (
-				F434D7F4296C4D1A0024AD6E /* LaunchAtLogin */,
 				F434D7F7296C4D360024AD6E /* KeyboardShortcuts */,
+				F4D52BC5298D0E0400350213 /* LaunchAtLogin */,
 			);
 			productName = SpellBoundMenuBar;
 			productReference = F4DE22E42959E3BB00BC398A /* SpellBound AI.app */;
@@ -217,8 +217,8 @@
 			);
 			mainGroup = F4DE22DB2959E3BB00BC398A;
 			packageReferences = (
-				F434D7F3296C4D1A0024AD6E /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 				F434D7F6296C4D360024AD6E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+				F4D52BC4298D0E0400350213 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 			);
 			productRefGroup = F4DE22E52959E3BB00BC398A /* Products */;
 			projectDirPath = "";
@@ -413,7 +413,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splbnd.SpellBoundMenuBar;
 				PRODUCT_NAME = "SpellBound AI";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -447,7 +447,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splbnd.SpellBoundMenuBar;
 				PRODUCT_NAME = "SpellBound AI";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -480,14 +480,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F434D7F3296C4D1A0024AD6E /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		F434D7F6296C4D360024AD6E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
@@ -496,18 +488,26 @@
 				kind = branch;
 			};
 		};
+		F4D52BC4298D0E0400350213 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F434D7F4296C4D1A0024AD6E /* LaunchAtLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F434D7F3296C4D1A0024AD6E /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
-			productName = LaunchAtLogin;
-		};
 		F434D7F7296C4D360024AD6E /* KeyboardShortcuts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F434D7F6296C4D360024AD6E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
+		};
+		F4D52BC5298D0E0400350213 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4D52BC4298D0E0400350213 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 
