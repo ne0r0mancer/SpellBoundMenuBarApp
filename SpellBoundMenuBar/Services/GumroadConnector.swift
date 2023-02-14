@@ -14,14 +14,15 @@ enum MissingLicenseKey: Error {
 public class GumroadConnector {
 
     let gumroadURL = URL(string: "https://api.gumroad.com/v2/licenses/verify")
-    var gumroadProduct = "lO6cSjOEs9v34vsciUs2fw=="
+    var gumroadMembershipProduct = "v9MI8z_1vzP3HOpSQfkTag=="
+    var gumroadLifetimeProduct = "lO6cSjOEs9v34vsciUs2fw=="
 
     // shared
     public static let shared = GumroadConnector()
 
     init() {
         print("Initializing GumroadConnector")
-        print("Gumroad product", gumroadProduct)
+        print("Gumroad product", gumroadMembershipProduct)
     }
 
     private func executeRequest(request: URLRequest, withSessionConfig sessionConfig: URLSessionConfiguration?) -> Data? {
@@ -46,19 +47,29 @@ public class GumroadConnector {
         task.resume()
 
         // Handle async with semaphores. Max wait of 10 seconds
-        let timeout = DispatchTime.now() + .seconds(20)
+        let timeout = DispatchTime.now() + .seconds(30)
         print("Waiting for semaphore signal")
         let retVal = semaphore.wait(timeout: timeout)
         print("Done waiting, obtained - \(retVal)")
         return requestData
     }
 
-    public func verify(gumroadKey: String) -> Bool {
+    public func verifyMembershipWithFallback(gumroadKey: String) -> Bool {
+        let membershipOk = verify(gumroadKey: gumroadKey, productKey: gumroadMembershipProduct)
+        if (membershipOk) {
+            return true
+        } else {
+            // fallback to lifetime
+            return verify(gumroadKey: gumroadKey, productKey: gumroadLifetimeProduct)
+        }
+    }
+
+    public func verify(gumroadKey: String, productKey: String) -> Bool {
         print("Calling URL: \(gumroadURL!)")
         var request = URLRequest(url: self.gumroadURL!)
         request.httpMethod = "POST"
         // post data containing gumroadProduct and gumroadLicence
-        let postString = "product_id=\(gumroadProduct)&license_key=\(gumroadKey)"
+        let postString = "product_id=\(productKey)&license_key=\(gumroadKey)"
         request.httpBody = postString.data(using: .utf8)
 //        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 

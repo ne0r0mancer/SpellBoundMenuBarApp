@@ -76,11 +76,11 @@ struct SpellBoundMenuBarApp: App {
                             .keyboardShortcut("4")
                     
                     // punchy
-                    Button("Punchy") {
-                        suggestionService.rephrasePunchy()
-
-                    }
-                            .keyboardShortcut("4")
+//                    Button("Punchy") {
+//                        suggestionService.rephrasePunchy()
+//
+//                    }
+//                            .keyboardShortcut("4")
 
                     // emotional
                     Button("Emotional") {
@@ -109,6 +109,13 @@ struct SpellBoundMenuBarApp: App {
 
                     }
                             .keyboardShortcut("8")
+                    
+                    // poetic
+                    Button("Poetic") {
+                        suggestionService.rephrasePoetic()
+
+                    }
+                            .keyboardShortcut("9")
 
                 } label: {
                     Image(systemName: "bolt.fill")

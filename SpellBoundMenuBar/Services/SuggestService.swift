@@ -184,7 +184,7 @@ class SuggestionsService: ObservableObject {
         DispatchQueue.global(qos: .background).async {
 
             //1. check licence key is valid
-            let licenseIsValid = GumroadConnector.shared.verify(gumroadKey: licenceKey)
+            let licenseIsValid = GumroadConnector.shared.verifyMembershipWithFallback(gumroadKey: licenceKey)
             if licenseIsValid {
                 print("Licence is VALID")
             } else {
