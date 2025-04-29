@@ -13,7 +13,7 @@ enum CannotReadPropertyFile: Error {
 
 public class OpenAIConnector {
 
-    let openAIURL = URL(string: "https://api.openai.com/v1/completions")
+    let openAIURL = URL(string: "https://api.openai.com/v1/chat/completions")
     var openAIKey: String = Keychain.shared.retrieve(key: "openaiKey") ?? ""
 
     init() {
@@ -64,16 +64,12 @@ public class OpenAIConnector {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer \(self.openAIKey)", forHTTPHeaderField: "Authorization")
         let httpBody: [String: Any] = [
-            "prompt": prompt,
-            "frequency_penalty": 0,
-            "model": "text-davinci-003",
-            "stop": ["Input:"],
-            "temperature": temperature,
-            "presence_penalty": 0,
-            "max_tokens": 450,
-            "n": 1,
-            "best_of": 1,
-            "user": ""
+            "messages": [
+                ["role": "user", "content": prompt]
+            ],
+            "model": "o4-mini",
+            "max_completion_tokens": 1000,
+            "n": 1
         ]
 
         var httpBodyJson: Data
@@ -90,8 +86,7 @@ public class OpenAIConnector {
             print("Response: \(jsonStr)")
             let responseHandler = OpenAIResponseHandler()
 
-            return responseHandler.decodeJson(jsonString: jsonStr)?.choices[0].text
-
+            return responseHandler.decodeJson(jsonString: jsonStr)?.choices[0].message.content
         }
 
         return nil
@@ -105,9 +100,8 @@ public class OpenAIConnector {
             do {
                 let product = try decoder.decode(OpenAIResponse.self, from: json)
                 return product
-
             } catch {
-                print("Error decoding OpenAI API Response")
+                print("Error decoding OpenAI API Response: \(error)")
             }
 
             return nil
@@ -120,13 +114,24 @@ public class OpenAIConnector {
         var created: Int
         var model: String
         var choices: [Choice]
+        var usage: Usage
     }
 
     struct Choice: Codable {
-        var text: String
         var index: Int
-        var logprobs: String?
+        var message: Message
         var finish_reason: String
+    }
+
+    struct Message: Codable {
+        var role: String
+        var content: String
+    }
+
+    struct Usage: Codable {
+        var prompt_tokens: Int
+        var completion_tokens: Int
+        var total_tokens: Int
     }
 }
 
