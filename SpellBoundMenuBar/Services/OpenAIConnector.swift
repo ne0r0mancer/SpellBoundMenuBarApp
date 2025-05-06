@@ -67,7 +67,7 @@ public class OpenAIConnector {
             "messages": [
                 ["role": "user", "content": prompt]
             ],
-            "model": "o4-mini",
+            "model": "gpt-4o-mini",
             "max_completion_tokens": 1000,
             "n": 1
         ]
