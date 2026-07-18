@@ -25,11 +25,13 @@ Select text anywhere and press <kbd>⌃</kbd><kbd>⇧</kbd><kbd>⌘</kbd><kbd>I<
 | | |
 |---|---|
 | **Grammar Genius** | Fix grammar and spelling in place |
-| **Tone Wizard** | Rewrite as formal, casual, concise, poetic, humorous, sarcastic, inspiring… |
-| **Continue** | Keep writing from where you stopped |
-| **Smart Reply** | Draft a reply to the selected message |
+| **Tone Wizzard** | Rewrite as formal, casual, concise, descriptive, viral, emotional, inspiring, humorous, sarcastic or poetic |
+| **Write on** | Keep writing from where you stopped |
+| **Quickfire Replies** | Draft a reply to the selected message |
+| **Text to Code** | Turn a description into a code snippet |
+| **Translate** | English, French, German, Spanish, Italian, Portuguese, Chinese, Japanese, Korean, Hindi |
 
-<img src="docs/screenshots/intro1.png" width="600" alt="The quick action menu in the macOS menu bar">
+<img src="docs/screenshots/menu.jpg" width="640" alt="The SpellBound quick action menu, showing Grammar Genius, Tone Wizzard, Write On, Quickfire Replies, Text to Code and Translate">
 
 ## Why it's different
 
@@ -38,9 +40,7 @@ Select text anywhere and press <kbd>⌃</kbd><kbd>⇧</kbd><kbd>⌘</kbd><kbd>I<
 - **Your key, your data** — you bring your own OpenAI API key. It's stored in the macOS Keychain and requests go straight from your Mac to OpenAI. There is no middleman server.
 - **Menu bar native** — SwiftUI, ~2 MB, launches at login, stays out of the way.
 
-<img src="docs/screenshots/intro4.png" width="600" alt="Smart Reply drafting a response in a chat app">
-
-<img src="docs/screenshots/intro3.png" width="600" alt="SpellBound working inside Discord">
+<img src="docs/screenshots/demo.gif" width="640" alt="Quickfire Replies drafting an email response inside Gmail">
 
 ## Build it
 
