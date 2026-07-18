@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <!-- Gumroad product IDs for license verification. Empty in the public
+             repo; set these to your own product IDs to enable license checks. -->
+        <key>GumroadMembershipProductID</key>
+        <string></string>
+        <key>GumroadLifetimeProductID</key>
+        <string></string>
+        <key>CFBundleShortVersionString</key>
+        <string>2.2.3</string>
+        <key>CFBundleVersion</key>
+        <string>1</string>
+        <key>CFBundleDocumentTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeIconSystemGenerated</key>
+                <integer>0</integer>
+                <key>CFBundleTypeName</key>
+                <string></string>
+                <key>CFBundleTypeRole</key>
+                <string>None</string>
+                <key>LSHandlerRank</key>
+                <string>Default</string>
+            </dict>
+            <dict/>
+        </array>
+    </dict>
+</plist>
